@@ -1,5 +1,6 @@
 # final_project
 Final project of Dataprocessing
+Mendel Engelaer 10996222
 
 ## Problem statement
 Trees are essential for the existence of human beings. Without them we would
@@ -26,3 +27,23 @@ Optional:
 * Interactive world map with slidebar to show change over years
 * Toggle option to show trees planted over the years
 * Adding charts to show trees planted vs trees cut over years
+
+## Prerequisites
+
+### Data sources:
+
+### External components:
+D3 library
+Maybe Pandas in order to structure the Data
+Other libraries will probably still need to be discussed in the course
+
+### Similar visualisation:
+
+#### Hardest parts:
+Most of the functionality discussed in this proposal still need to be discussed
+in the course. Therefore it is difficult to estimate the hardest parts.
+But my estimation is that linking all the charts together will be the hardest
+technical problem.
+I have not yet analysed all the available data on the cutting of forests.
+Therefore there might be too few data too show the cutting history for all
+countries.

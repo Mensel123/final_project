@@ -29,7 +29,6 @@ Optional:
 * Adding charts to show trees planted vs trees cut over years
 
 ## Prerequisites
-
 ### Data sources:
 
 ### External components:
@@ -38,12 +37,18 @@ Maybe Pandas in order to structure the Data
 Other libraries will probably still need to be discussed in the course
 
 ### Similar visualisation:
+https://jaspernaberman.github.io/Programming-Project/Scripts/HTML/visualizations.html
+I think this visualtion matches the visualization I would like to create.
+It includes a map that informs the user about the global situation. Its also
+possible in this graph to see detailed information per country. This
+visualization does not have a future to show changes in time, I would like to
+add this to my visualization.
 
-#### Hardest parts:
+### Hardest parts:
 Most of the functionality discussed in this proposal still need to be discussed
 in the course. Therefore it is difficult to estimate the hardest parts.
 But my estimation is that linking all the charts together will be the hardest
-technical problem.
+technical problem.  
 I have not yet analysed all the available data on the cutting of forests.
 Therefore there might be too few data too show the cutting history for all
 countries.

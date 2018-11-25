@@ -19,6 +19,10 @@ thats being cut per country over the years.
 
 ### Main features
 MVP:
-* interactive world map
-* joe 
+* Interactive world map, cliking on the map shows additional information
+* Linechart that shows the amount of wood that was cut in a perticular country
+
 Optional:
+* Interactive world map with slidebar to show change over years
+* Toggle option to show trees planted over the years
+* Adding charts to show trees planted vs trees cut over years

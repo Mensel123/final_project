@@ -22,6 +22,7 @@ thats being cut per country over the years.
 MVP:
 * Interactive world map, cliking on the map shows additional information
 * Linechart that shows the amount of wood that was cut in a perticular country
+* Bar chart that shows the amount of wood cut per country for one year
 
 Optional:
 * Interactive world map with slidebar to show change over years

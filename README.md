@@ -32,7 +32,7 @@ Optional:
 ### Data sources:
 
 ### External components:
-D3 library
+D3 library  
 Maybe Pandas in order to structure the Data
 Other libraries will probably still need to be discussed in the course
 

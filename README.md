@@ -21,16 +21,18 @@ that is being cut per country over the years.
 ### Main features
 MVP:
 * Interactive world map, clicking on the map shows additional information,
-hovering highlights the results in the bar chart
+hovering highlights the results in the bar chart  
+http://datamaps.github.io
 * Line chart that shows the amount of wood that was cut in a particular country
 * Bar chart that shows the amount of wood cut per country for one year,
 hovering highlights the country in the map
 * clicking the bar chart or map gives additional information about that country
 over the years
-
-Optional:
 * Interactive world map with slidebar to show change over years
-* Toggle option to show trees planted over the years
+* Toggle option to show trees planted over the years  
+* Introduction page to present story with some facts about current status
+
+Optional:  
 * Adding charts to show trees planted vs trees cut over years
 
 ## Prerequisites

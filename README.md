@@ -29,11 +29,15 @@ hovering highlights the country in the map
 * clicking the bar chart or map gives additional information about that country
 over the years
 * Interactive world map with slidebar to show change over years
-* Toggle option to show trees planted over the years  
+* Toggle option to show trees planted over the years
 * Introduction page to present story with some facts about current status
 
 Optional:  
-* Adding charts to show trees planted vs trees cut over years
+* Adding charts to show trees planted vs trees cut over years(not possible since
+  data is missing for this graph)
+* Adding a toggle option to show aggricultural land over time. Aggriculture is
+  one of the main causes for deforestation and might therefore be interesting to
+  show as additional data.
 
 ## Prerequisites
 ### Data sources:
@@ -44,6 +48,12 @@ it is well organized.
 http://www.globalforestwatch.org/dashboards/global
 This dataset is far more complete. It gives data across a large timeline and
 it includes many countries. This will most likely be the data I will use.
+
+https://data.worldbank.org/indicator/AG.LND.FRST.ZS?end=2015&locations=AT-AL&start=2015&view=map&year=2003  
+This dataset is most complete for forest coverage and I will use this dataset.
+
+https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?end=2015&locations=BF&start=1961&view=chart&year=2015  
+This dataset shows the amount of agricultural land per country. This
 
 ### External components:
 D3 library  

@@ -23,13 +23,15 @@ MVP:
 * Interactive world map, clicking on the map shows additional information,
 hovering highlights the results in the bar chart  
 http://datamaps.github.io
-* Line chart that shows the amount of wood that was cut in a particular country
-* Bar chart that shows the amount of wood cut per country for one year,
+* Line chart that shows forest area in a particular country
+* Bar chart that shows the forest area for one year,
 hovering highlights the country in the map
 * clicking the bar chart or map gives additional information about that country
 over the years
-* Interactive world map with slidebar to show change over years
-* Toggle option to show trees planted over the years
+* Interactive world map with slidebar to show change over years that also changes
+  the bargraph
+* Toggle option to show trees planted over the years (not possible with current
+  dataset)
 * Introduction page to present story with some facts about current status
 
 Optional:  

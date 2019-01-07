@@ -33,14 +33,13 @@ over the years
 * Toggle option to show trees planted over the years (not possible with current
   dataset)
 * Introduction page to present story with some facts about current status
-* A piechart to show aggricultural land in combination with forest area.
-  Aggriculture is one of the main causes for deforestation and might therefore
-  be interesting to show as additional data.
 
 Optional:  
 * Adding charts to show trees planted vs trees cut over years(not possible since
   data is missing for this graph)
-
+* Adding a toggle option to show aggricultural land over time. Aggriculture is
+  one of the main causes for deforestation and might therefore be interesting to
+  show as additional data.
 
 ## Prerequisites
 ### Data sources:

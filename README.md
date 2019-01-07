@@ -55,7 +55,7 @@ https://data.worldbank.org/indicator/AG.LND.FRST.ZS?end=2015&locations=AT-AL&sta
 This dataset is most complete for forest coverage and I will use this dataset.
 
 https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?end=2015&locations=BF&start=1961&view=chart&year=2015  
-This dataset shows the amount of agricultural land per country
+This dataset shows the amount of agricultural land per country.
 
 ### External components:
 D3 library  

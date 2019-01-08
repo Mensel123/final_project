@@ -17,4 +17,4 @@ correlation if there is one.
 https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?end=2015&locations=BF&start=1961&view=chart&year=2015
 
 ## Diagram:
-![alt text](https://github.com/Mensel123/final_project/blob/master/doc/diagram.jpeg)
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/diagram.jpg)

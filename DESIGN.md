@@ -14,7 +14,12 @@ https://data.worldbank.org/indicator/AG.LND.FRST.K2?end=2015&start=2015&view=map
 Datasset that shows the agricultural land for most countries. Not sure if im gonna
 use this but the data matches that of the forest area so I could show a
 correlation if there is one.  
-https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?end=2015&locations=BF&start=1961&view=chart&year=2015
+https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?end=2015&locations=BF&start=1961&view=chart&year=2015  
+
+I have downloaded and merged my dataset into a pandas dataframe that I made into
+a json file:  
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/pandas_dataframe.png)
+
 
 ## Diagram:
 ![alt text](https://github.com/Mensel123/final_project/blob/master/doc/diagram.jpg)

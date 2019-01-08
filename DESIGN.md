@@ -4,7 +4,7 @@ Mendel Engelaer 10996222
 
 ## List of datasets:
 Dataset with all the countries present in the map im gonna use. I will extract
-data from the other dataset to match the countries in this dataset
+data from the other dataset to match the countries in this dataset.  
 http://bl.ocks.org/micahstubbs/8e15870eb432a21f0bc4d3d527b2d14f
 
 Dataset thats shows forest area(sq.km). It contains for most countries
@@ -15,3 +15,6 @@ Datasset that shows the agricultural land for most countries. Not sure if im gon
 use this but the data matches that of the forest area so I could show a
 correlation if there is one.  
 https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?end=2015&locations=BF&start=1961&view=chart&year=2015
+
+## Diagram:
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/diagram.jpeg)

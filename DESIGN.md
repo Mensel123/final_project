@@ -38,7 +38,7 @@ Optional:
   one of the main causes for deforestation and might therefore be interesting to
   show as additional data. (d3)
 
-## Components:
+## Plugins:
 * d3-tip.js
 * https://d3js.org/d3.v5.min.js
 * Worldmap: http://d3js.org/topojson.v1.min.js"

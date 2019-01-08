@@ -10,4 +10,7 @@ crucial for answering my question.
 Furthermore I decided to work with one json file. So I merged the csv and tsv
 file into one json. Ik heb hem eerst in een pandas dataframe gezet om overzicht
 te krijgen:  
-![alt text](https://github.com/Mensel123/final_project/blob/master/doc/pandas_dataframe.png)
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/pandas_dataframe.png)  
+
+Hierna heb ik dit dataframe in een json gezet:  
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/json.png)  

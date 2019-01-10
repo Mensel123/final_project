@@ -30,3 +30,6 @@ te maken voor mijn kaart. De data ligt heel ver uit elkaar waardoor sommige land
 altijd heel donker gekleurd zijn en andere heel licht. Als je dan verschuift
 over de jaren dan zie je bijna geen verandering. Ik hoop dit met een logaritmische
 schaal op te lossen.
+logaritmische schaal heeft niet geholpen, heb een andere dataset van dezelfde
+bron met dezelfde opzet gevonden die het uitdrukt in hoeveelheid bos per
+hoeveelheid totale land oppervlakte. 

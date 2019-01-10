@@ -16,3 +16,17 @@ Ik heb hem eerst in een pandas dataframe gezet om overzicht te krijgen:
 
 Hierna heb ik dit dataframe in een json gezet:  
 ![alt text](https://github.com/Mensel123/final_project/blob/master/doc/json.png)  
+
+# day 3
+Vandaag lang bezig geweest met het goed ordenen van mijn json. Maar ik vond dit
+de moeite waard want nu heb ik een json met alle data die makkelijk naar alle
+grafieken kan sturen en ze daarmee maken.
+
+# day 4
+Vandaag indeling gemaakt van mijn site. Bootstrap ga ik gebruiken voor de
+vormgeving. Dit is makkelijk te implementeren, er zijn veel tutorials van
+en ik vind de layout mooi. Verder ga ik proberen een logaritmische kleuren schaal
+te maken voor mijn kaart. De data ligt heel ver uit elkaar waardoor sommige landen
+altijd heel donker gekleurd zijn en andere heel licht. Als je dan verschuift
+over de jaren dan zie je bijna geen verandering. Ik hoop dit met een logaritmische
+schaal op te lossen.

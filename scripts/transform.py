@@ -3,9 +3,10 @@ import csv
 import json
 from pandas.io.json import json_normalize
 
+
 def load():
     # load csv as DataFrame
-    df_trees = pd.read_csv('data_new.csv')
+    df_trees = pd.read_csv('data_2.csv')
 
 
     # df_trees = pd.read_json('world_countries.json')
@@ -20,21 +21,35 @@ def load():
     #lets put the data into a pandas df
     #clicking on raw_nyc_phil.json under "Input Files"
     #tells us parent node is 'programs'
+
     df_countries = json_normalize(d['features'])
-    df_countries.rename(columns={'id': 'Country Code', 'properties.name': 'Country Name'}, inplace=True)
+
+    df_countries.rename(columns={'id': 'Country Code', 'properties.name': 'Country Name', 'type': 'type_1', 'geometry.coordinates': 'coordinates', 'geometry.type': 'type'}, inplace=True)
     # print(df_countries)
     # print(df_trees)
 
     # result = df_countries.append(df_trees, sort=False)
     # result = pd.concat([df_countries, df_trees], axis=1,join_axes=[df_countries.index])
     result = pd.merge(df_countries, df_trees, on='Country Name', how='left')
-    # with pd.option_context('display.max_rows', None):
+    # with pd.option_context('display.max_columns', None):
     #     print(result)
-    result.set_index("Country Name", inplace=True)
-    print(result)
-    result.to_json("new_json.json", orient='index')
+    # result.set_index("Country Name", inplace=True)
 
 
+
+    result.to_json("new_json.json", orient='records')
+
+    columns = result.columns.tolist()
+    columns.remove('coordinates')
+    columns.remove('type')
+    # print(result.coordinates)
+
+    # j = (result.groupby(columns, as_index=False)
+    #              .apply(lambda x: x[['coordinates', 'type']].to_dict('r'))
+    #              # .reset_index()
+    #              .rename(columns={0:'geometry'})
+    #              .to_json(orient='records'))
+    # print(j)
 # def parsing(df):
 #     # select data from NETHERLANDS
 #     df = df.loc[lambda df: df.Country == 'NETHERLANDS', :]

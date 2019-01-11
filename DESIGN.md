@@ -18,7 +18,7 @@ https://data.worldbank.org/indicator/AG.LND.AGRI.ZS?end=2015&locations=BF&start=
 
 I have downloaded and merged my dataset into a pandas dataframe that I made into
 a json file. Showing the countries in the world map merged with the forest data
-over the years: 
+over the years:
 ![alt text](https://github.com/Mensel123/final_project/blob/master/doc/pandas_dataframe.png)
 
 
@@ -43,6 +43,8 @@ Optional:
 * Adding a toggle option to show aggricultural land over time. Aggriculture is
   one of the main causes for deforestation and might therefore be interesting to
   show as additional data. (d3)
+* Selecting multiple countries adds lines to the line chart
+* Pie charts with best and wordst countries
 
 ## Plugins:
 * d3-tip.js

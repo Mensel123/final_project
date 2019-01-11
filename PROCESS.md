@@ -32,4 +32,16 @@ over de jaren dan zie je bijna geen verandering. Ik hoop dit met een logaritmisc
 schaal op te lossen.
 logaritmische schaal heeft niet geholpen, heb een andere dataset van dezelfde
 bron met dezelfde opzet gevonden die het uitdrukt in hoeveelheid bos per
-hoeveelheid totale land oppervlakte. 
+hoeveelheid totale land oppervlakte.
+
+# day 5
+Ik wil twee pie charts toevoegen die top 10 beste en slechtste landen laat zien. Dus
+de landen die de meeste postitieve en landen met de meeste negatieve groei hebben.
+Maar dit zal pas later gebeuren. Het lijkt me ook leuk om als de lijngrafiek af
+is een optie te maken dat je landen kan toevoegen aan dezelfde grafiek, dat er
+dus nieuwe lijnen bijkomen.
+Vandaag vooral bezig geweest met de koppeling afmaken tussen mijn barchart en
+kaart. Verder begonnen met een aanpassing aan mijn datastructuur. Ik wil de
+jaren onder een kopje plaatsen zodat ik hier makkelijk en overzichtelijk bij
+kan. Ik heb ook mijn transitie in mijn barchart verandert zodat die er wat
+soepeler uitziet. 

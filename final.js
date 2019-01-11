@@ -34,14 +34,29 @@ window.onload = function() {
       // draw map and barchart
 
       data = map(response);
-      slider(data)
+
       barchart(response)
+      // linechart(response)
+      slider(data)
       // logscale()
       // draw_chart(properties);
     }).catch(function(e){
         throw(e);
     });
-
+  // function linechart(data){
+  //   console.log(data[0][0]);
+  //   for (var el in data[0][0]){
+  //     if (typeof(el) === Number){
+  //       console.log("number");
+  //
+  //     }
+  //     else{
+  //       console.log(el);
+  //       console.log(typeof(el));
+  //       console.log("no number");
+  //     }
+  //   }
+  // }
   function barchart(data){
 
     var barPadding = 45;
@@ -52,7 +67,7 @@ window.onload = function() {
 
     // set barchart svg properties
     var properties = {
-      width: 1000 - left - right,
+      width: 1400 - left - right,
       height: 500 - top - bottom,
       padding: 18,
       left: left,
@@ -139,11 +154,25 @@ window.onload = function() {
 
                // show tip when mouse hovers over bar
                .on('mouseover',function(d){
-                 tip.show(d);
+
+                tip.show(d)
                 d3.select(this)
                   .style("opacity", 0.6)
                   .style("stroke","white")
                   .style("stroke-width",3);
+
+                activeCountry = d["Country Name"]
+                d3.select(".countries").selectAll("path")
+                  .classed("barLight", function(d) {
+                    if ( d["Country Name"] == activeCountry) {
+                      d3.select(this)
+                        .style("opacity", 0.6)
+                        .style("stroke","white")
+                        .style("stroke-width",3);
+                        return true
+                    }
+                    else return false;
+                  });
                 })
                .on('mouseout', function(d){
                  tip.hide(d);
@@ -151,9 +180,22 @@ window.onload = function() {
                    .style("opacity", 1)
                    .style("stroke","white")
                    .style("stroke-width",0.3);
+                  activeCountry = d["Country Name"]
+                  d3.select(".countries").selectAll("path")
+                    .classed("barLight", function(d) {
+                      if ( d["Country Name"] == activeCountry) {
+                        d3.select(this)
+                           .style("opacity", 1)
+                           .style("stroke","white")
+                           .style("stroke-width",0.3);
+                          return true
+                      }
+                      else return false;
+                    });
                  })
                 .on("click", function(d){
-                  clickBar(d)
+
+
                 });
 
     /* made legend with help of:
@@ -205,11 +247,7 @@ window.onload = function() {
 
 
   }
-  function clickBar(d){
-    console.log(d);
-    d3.select(".countries").selectAll("path")
-      tip.show(d);
-  }
+
   function updateBar(data, year){
         var barPadding = 45;
         var top = 20;
@@ -232,7 +270,9 @@ window.onload = function() {
                    .range([properties.height,0]);
 
     d3.select(".barchart").selectAll(".bar")
-      .transition(1000)
+      .transition()
+      .ease(d3.easeExp)
+      .duration(1000)
       .attr("y", function(d) {
        	return yScale(d[year]);
        })
@@ -296,6 +336,19 @@ window.onload = function() {
               .style("opacity", 1)
               .style("stroke","white")
               .style("stroke-width",3);
+
+          activeCountry = d["Country Name"]
+          d3.select(".barchart").selectAll(".bar")
+            .classed("barLight", function(d) {
+              if ( d["Country Name"] == activeCountry) {
+                d3.select(this)
+                  .style("opacity", 0.6)
+                  .style("stroke","white")
+                  .style("stroke-width",3);
+                  return true
+              }
+              else return false;
+            });
           })
           .on('mouseout', function(d){
             tip.hide(d);
@@ -304,6 +357,19 @@ window.onload = function() {
               .style("opacity", 0.8)
               .style("stroke","white")
               .style("stroke-width",0.3);
+
+              activeCountry = d["Country Name"]
+              d3.select(".barchart").selectAll(".bar")
+                .classed("barLight", function(d) {
+                  if ( d["Country Name"] == activeCountry) {
+                    d3.select(this)
+                      .style("opacity", 0.8)
+                      .style("stroke","white")
+                      .style("stroke-width",0.3);
+                      return true
+                  }
+                  else return false;
+                });
           });
 
     // add slidebar

@@ -15,7 +15,7 @@ def load():
     # df_2 = (df_trees["features"])
     # print(df_2[1])
     #load json object
-    with open('world_countries.json') as f:
+    with open('../world_countries.json') as f:
         d = json.load(f)
 
     #lets put the data into a pandas df
@@ -39,17 +39,28 @@ def load():
 
     result.to_json("new_json.json", orient='records')
 
-    columns = result.columns.tolist()
-    columns.remove('coordinates')
-    columns.remove('type')
+    # columns = result.columns.tolist()
+    # columns.remove('coordinates')
+    # columns.remove('type')
     # print(result.coordinates)
 
+    # temp_list = []
+    # for year in range(1990,2016):
+    #    jaar = str(year)
+    #    temp_list.append(jaar)
+    # print(temp_list)
+    # for datum in temp_list:
+    #     columns.remove(datum)
+    # print(columns)
     # j = (result.groupby(columns, as_index=False)
-    #              .apply(lambda x: x[['coordinates', 'type']].to_dict('r'))
-    #              # .reset_index()
-    #              .rename(columns={0:'geometry'})
-    #              .to_json(orient='records'))
-    # print(j)
+    #              .apply(lambda x: x[temp_list].to_dict('r'))
+    #
+    #              .reset_index()
+    #
+    #              .rename(columns={0:'years'})
+    #
+    #              .to_json("new_json.json",orient='records'))
+
 # def parsing(df):
 #     # select data from NETHERLANDS
 #     df = df.loc[lambda df: df.Country == 'NETHERLANDS', :]

@@ -44,4 +44,24 @@ Vandaag vooral bezig geweest met de koppeling afmaken tussen mijn barchart en
 kaart. Verder begonnen met een aanpassing aan mijn datastructuur. Ik wil de
 jaren onder een kopje plaatsen zodat ik hier makkelijk en overzichtelijk bij
 kan. Ik heb ook mijn transitie in mijn barchart verandert zodat die er wat
-soepeler uitziet. 
+soepeler uitziet.
+
+# day 6
+Vandaag alleen maar bezig geweest met het herstructureren van mijn dataset.
+Ik dacht dat ik de jaartallen per land er goed in had gezet maar het bleek
+niet handig te zijn toen ik mijn lijngrafiek wilde maken dat ik ze niet
+onder één kopje had gezet. Daarom heb ik nu alle jaartallen onder een kopje gezet
+en dat aangepast in de andere grafieken. Ik heb ook al een begin gemaakt met
+mijn lijngrafiek.
+
+# day 7
+Vandaag lijngrafiek afgemaakt. Als ik nu op een land in de kaart of bar in de
+bargraph klik dan laat de grafiek het verloop van dit land over de jaren zien.
+Verder heb ik de mouseover functies van de kaart en bargraph verbeterd.
+Ik heb puntjes aan de lijngrafiek toegevoegd. Ik wil nu de functionaliteit toevoegen
+dat wanneer er op een van de puntjes wordt geklikt dat de kaart, bargraph en slider
+de data van dat jaar weergeven. Ik hoop dit de doen door alleen de slider aan te
+passen en dat die de bargraph en kaart update, geen idee of dit gaat lukken.
+De slider is nu heel traag en happerig. Als ik op een jaar klik in de lijngrafiek
+dan verplaatst de slider heel traag. Misschien kan ik dit oplossen door hem niet
+een stap per jaar te laten zetten maar kleinere tussenstappen te nemen.

@@ -137,10 +137,10 @@ window.onload = function() {
             .style("fill", "#ffab00")
            })
           .on("click", function(d){
-              d3.select(".slider")
-                .transition()
-                .duration(1000)
-                .attr("value", d.year)
+              // d3.select(".slider")
+              //   .transition()
+              //   .duration(1000)
+              //   .attr("value", d.year)
           })
 
 
@@ -564,23 +564,88 @@ window.onload = function() {
             updateLineGraph(d)
           })
 
-    // add slidebar
-  d3.select("body").append("div")
-    .attr("class", "slidecontainer")
-    .append("input")
-      .attr("type", "range")
-      .attr("min", "1990")
-      .attr("max", "2015")
-      .attr("value", "1990")
-      .attr("class", "slider")
-      .attr("id", "myRange")
 
-  // add 'p' element to show the current year of the slidebar
-  d3.select(".slidecontainer").append("p")
-                  .text("Year:")
-                  .append("span")
-                    .attr("id", "demo")
-                    .style("font-weight","bold")
+
+  }
+  function slider(data){
+      var xScale = d3.scaleBand()
+                     .domain([0,10,20,30,40,180])
+                     .range([0, 400])
+
+        // add slidebar
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", 400)
+                .attr("height", 400)
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + 400 / 2 + ")")
+        .call(d3.axisBottom()
+          .scale(xScale)
+          .tickFormat(function(d) { return d + "°"; })
+          .tickSize(0)
+          .tickPadding(12))
+      .select(".domain")
+      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+        .attr("class", "halo");
+
+
+var brush = d3.svg.brush()
+    .x(x)
+    .extent([0, 0])
+    .on("brush", brushed)
+    .on("brushend", brushend);
+
+  var slider = svg.append("g")
+    .attr("class", "slider")
+    // .call(brush);
+  slider.selectAll(".extent,.resize")
+    .remove();
+  slider.select(".background")
+    .attr("height", 400);
+
+    var handle = slider.append("circle")
+      .attr("class", "handle")
+      .attr("transform", "translate(0," + 400 / 2 + ")")
+      .attr("r", 9);
+slider
+    .call(brush.event)
+  .transition() // gratuitous intro!
+    .duration(750)
+    .call(brush.extent([70, 70]))
+    .call(brush.event);
+
+function brushed() {
+  var value = brush.extent()[0];
+
+  if (d3.event.sourceEvent) { // not a programmatic event
+    value = x.invert(d3.mouse(this)[0]);
+    brush.extent([value, value]);
+  }
+
+  handle.attr("cx", x(value));
+  d3.select("body").style("background-color", d3.hsl(value, .8, .8));
+}
+
+function brushend() {
+   if (!d3.event.sourceEvent) {
+     return; // only transition after input
+   }
+
+   var value = brush.extent()[0];
+   brush.extent([value, value]);
+
+   d3.select(this)
+     .transition()
+     .duration(0)
+     .call(brush.event);
+
+   d3.select(this)
+     .transition()
+     .call(brush.extent(brush.extent().map(function(d) { return d3.round(d, -1); })))
+     .call(brush.event);
+ }
 
   }
   function updateMap(data, year){
@@ -605,25 +670,25 @@ window.onload = function() {
   }
     /* this function adds functionality to the sliderbar
   source: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
-  function slider(data){
-
-    // get slider and output element
-    var slider = document.getElementById("myRange");
-    var output = document.getElementById("demo");
-
-    /* output element shows the current value (2007) of the slider when page is
-    loaded */
-    output.innerHTML = slider.value;
-
-    /* when slider is moved, update value shown beneath slidebar, update graph
-    with data of required year*/
-    slider.oninput = function() {
-
-      output.innerHTML = this.value;
-
-      // list = combineData(data, output.innerHTML)
-      updateMap(data, output.innerHTML)
-      updateBar(data, output.innerHTML)
-    }
-  }
+  // function slider(data){
+  //
+  //   // get slider and output element
+  //   var slider = document.getElementById("myRange");
+  //   var output = document.getElementById("demo");
+  //
+  //   /* output element shows the current value (2007) of the slider when page is
+  //   loaded */
+  //   output.innerHTML = slider.value;
+  //
+  //   /* when slider is moved, update value shown beneath slidebar, update graph
+  //   with data of required year*/
+  //   slider.oninput = function() {
+  //
+  //     output.innerHTML = this.value;
+  //
+  //     // list = combineData(data, output.innerHTML)
+  //     updateMap(data, output.innerHTML)
+  //     updateBar(data, output.innerHTML)
+  //   }
+  // }
 }

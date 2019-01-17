@@ -24,4 +24,4 @@ source: https://www.w3schools.com/js/js_conventions.asp
 * witregel boven comment
 * 80 characters max (see source)
 * imports bovenaan (see source)  
-https://www.python.org/dev/peps/pep-0008/
+source: https://www.python.org/dev/peps/pep-0008/

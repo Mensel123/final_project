@@ -137,10 +137,10 @@ window.onload = function() {
             .style("fill", "#ffab00")
            })
           .on("click", function(d){
-              // d3.select(".slider")
-              //   .transition()
-              //   .duration(1000)
-              //   .attr("value", d.year)
+              d3.select(".slider")
+                // .update()
+                // .duration(1000)
+                .attr("value", d.year.toString())
           })
 
 
@@ -151,7 +151,43 @@ window.onload = function() {
   // focus.append("circle")
   //     .attr("r", 4.5);
   }
+  function slider(data){
+      // add slidebar
+    d3.select("#slider").append("div")
+      .attr("class", "slidecontainer")
+      .append("input")
+        .attr("type", "range")
+        .attr("min", "1990")
+        .attr("max", "2015")
+        .attr("value", "1990")
+        .attr("class", "slider")
+        .attr("id", "myRange")
 
+    // add 'p' element to show the current year of the slidebar
+    d3.select(".slidecontainer").append("p")
+                    .text("Year:")
+                    .append("span")
+                      .attr("id", "demo")
+                      .style("font-weight","bold")
+    // get slider and output element
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+
+    /* output element shows the current value (2007) of the slider when page is
+    loaded */
+    output.innerHTML = slider.value;
+
+    /* when slider is moved, update value shown beneath slidebar, update graph
+    with data of required year*/
+    slider.oninput = function() {
+
+      output.innerHTML = this.value;
+
+      // list = combineData(data, output.innerHTML)
+      updateMap(data, output.innerHTML)
+      updateBar(data, output.innerHTML)
+    }
+  }
   function updateLineGraph(data){
 
     var barPadding = 45;
@@ -561,91 +597,82 @@ window.onload = function() {
               });
           })
           .on('click', function(d){
-            updateLineGraph(d)
+            // updateLineGraph(d)
+            addLine(d)
           })
-
-
-
   }
-  function slider(data){
-      var xScale = d3.scaleBand()
-                     .domain([0,10,20,30,40,180])
-                     .range([0, 400])
+  function addLine(data){
+        var temp_list_1 = []
+        data[0][4].Years.forEach(function(element){
+          temp_list_1.push(element.year)
+        })
+        let min_1 = Math.min(...temp_list_1);
+        let max_1 = Math.max(...temp_list_1);
 
-        // add slidebar
-    var svg = d3.select("body")
-                .append("svg")
-                .attr("width", 400)
-                .attr("height", 400)
+        var xScale = d3.scaleTime()
+          .domain([new Date(min_1.toString()),new Date(max_1.toString())])
+          .range([0, properties.width])
 
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + 400 / 2 + ")")
-        .call(d3.axisBottom()
-          .scale(xScale)
-          .tickFormat(function(d) { return d + "°"; })
-          .tickSize(0)
-          .tickPadding(12))
-      .select(".domain")
-      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
-        .attr("class", "halo");
+        var temp_list = []
+        data[0][4].Years.forEach(function(element){
+          temp_list.push(element.value)
+        })
 
+        let min = Math.min(...temp_list);
+        let max = Math.max(...temp_list);
 
-var brush = d3.svg.brush()
-    .x(x)
-    .extent([0, 0])
-    .on("brush", brushed)
-    .on("brushend", brushend);
+        // scale.range aanpassen
+        var yScale = d3.scaleLinear()
+          .domain([min, max]).nice()
+          .range([properties.height, 0]);
 
-  var slider = svg.append("g")
-    .attr("class", "slider")
-    // .call(brush);
-  slider.selectAll(".extent,.resize")
-    .remove();
-  slider.select(".background")
-    .attr("height", 400);
+        var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    var handle = slider.append("circle")
-      .attr("class", "handle")
-      .attr("transform", "translate(0," + 400 / 2 + ")")
-      .attr("r", 9);
-slider
-    .call(brush.event)
-  .transition() // gratuitous intro!
-    .duration(750)
-    .call(brush.extent([70, 70]))
-    .call(brush.event);
+        /* Add Axis into SVG */
+        var xAxis = d3.axisBottom(xScale)
+                      .ticks(Object.keys(data[0][4].Years).length/2)
+        var yAxis = d3.axisLeft(yScale)
 
-function brushed() {
-  var value = brush.extent()[0];
+        svg.append("g")
+          .attr("class", "x_axis")
+          .attr("transform", `translate(0, ${properties.height})`)
+          .call(xAxis);
 
-  if (d3.event.sourceEvent) { // not a programmatic event
-    value = x.invert(d3.mouse(this)[0]);
-    brush.extent([value, value]);
-  }
+        svg.append("g")
+          .attr("class", "y_axis")
+          .call(yAxis)
 
-  handle.attr("cx", x(value));
-  d3.select("body").style("background-color", d3.hsl(value, .8, .8));
-}
+        var line = d3.line()
+          .x(function(d) {return xScale(new Date(d.year)); }) // set the x values for the line generator
+          .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
+          .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-function brushend() {
-   if (!d3.event.sourceEvent) {
-     return; // only transition after input
-   }
-
-   var value = brush.extent()[0];
-   brush.extent([value, value]);
-
-   d3.select(this)
-     .transition()
-     .duration(0)
-     .call(brush.event);
-
-   d3.select(this)
-     .transition()
-     .call(brush.extent(brush.extent().map(function(d) { return d3.round(d, -1); })))
-     .call(brush.event);
- }
+        svg.append("path")
+            .datum(data[0][4].Years) // 10. Binds data to the line
+            .attr("class", "line") // Assign a class for styling
+            .attr("d", line) // 11. Calls the line generator
+        svg.selectAll(".dot")
+            .data(data[0][4].Years)
+          .enter().append("circle") // Uses the enter().append() method
+            .attr("class", "dot") // Assign a class for styling
+            .attr("cx", function(d) { return xScale(new Date(d.year)) })
+            .attr("cy", function(d) { return yScale(d.value) })
+            .attr("r", 5)
+              .on("mouseover", function(a, b, c) {
+                d3.select(this)
+                .style("fill", "#000000")
+                console.log(a)
+              })
+              .on("mouseout", function() {
+                d3.select(this)
+                .style("fill", "#ffab00")
+               })
+              .on("click", function(d){
+                  d3.select(".slider")
+                    // .update()
+                    // .duration(1000)
+                    .attr("value", d.year.toString())
+              })
 
   }
   function updateMap(data, year){
@@ -670,25 +697,5 @@ function brushend() {
   }
     /* this function adds functionality to the sliderbar
   source: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
-  // function slider(data){
-  //
-  //   // get slider and output element
-  //   var slider = document.getElementById("myRange");
-  //   var output = document.getElementById("demo");
-  //
-  //   /* output element shows the current value (2007) of the slider when page is
-  //   loaded */
-  //   output.innerHTML = slider.value;
-  //
-  //   /* when slider is moved, update value shown beneath slidebar, update graph
-  //   with data of required year*/
-  //   slider.oninput = function() {
-  //
-  //     output.innerHTML = this.value;
-  //
-  //     // list = combineData(data, output.innerHTML)
-  //     updateMap(data, output.innerHTML)
-  //     updateBar(data, output.innerHTML)
-  //   }
-  // }
+
 }

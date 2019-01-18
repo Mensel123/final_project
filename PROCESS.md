@@ -65,3 +65,23 @@ passen en dat die de bargraph en kaart update, geen idee of dit gaat lukken.
 De slider is nu heel traag en happerig. Als ik op een jaar klik in de lijngrafiek
 dan verplaatst de slider heel traag. Misschien kan ik dit oplossen door hem niet
 een stap per jaar te laten zetten maar kleinere tussenstappen te nemen.
+
+# day 8
+Vandaag hele dag bezig geweest met het verplaatsen van de slider. Dit is uiteindelijk
+wel gelukt maar ging nog steeds heel happerig. Aan het einde van de dag heb ik
+besloten hier niet verder mee te gaan, ik had er veel te veel tijd in gestoken.
+Ik heb verschillende voorbeelden gevolgd en allemaal verschillende dingen
+geprobeerd maar het werd niet beter. Ik ben daarna verder gegaan met het
+vergelijken van twee landen.
+
+# day 9
+Vandaag bezig geweest met het vergelijken van meerder landen. Ik heb een checkbox
+gemaakt waar ik de status van kan uitlezen. Op basis hiervan kan ik of een
+transitie laten plaatsvinden als er op een land wordt gedrukt of ik kan een land
+toevoegen aan de lijngrafiek. Ik heb het nu zo gemaakt dat er een lijn bijkomt
+maar zonder de update functie, dat zal ik morgen moeten doen.
+
+# day 10
+Nu dus verder gegaan met de update functie. Het toevoegen van lijnen gaat goed
+alleen de punten zijn een probleem. Ben al de hele dag bezig geweest met het
+verplaatsen van de punten maar het werkt nog niet.  

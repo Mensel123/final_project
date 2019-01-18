@@ -35,6 +35,7 @@ window.onload = function() {
       data = map(response);
 
       barchart(response)
+      checkbox(response)
       linechart(response)
       slider(data)
       // logscale()
@@ -43,6 +44,8 @@ window.onload = function() {
         throw(e);
     });
   function linechart(data){
+    data_list = []
+
     var barPadding = 45;
     var top = 20;
     var right = 50;
@@ -59,6 +62,9 @@ window.onload = function() {
       top: top,
       bottom: bottom,
     }
+    currentData = data[0][4].Years
+
+
     // create svg
     var svg = d3.select("#area2")
                 .append("svg")
@@ -116,12 +122,34 @@ window.onload = function() {
       .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
       .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-    svg.append("path")
+
+    // console.log(data[0][4]);
+    // lines.selectAll('.line-group')
+    // svg.append("path")
+    var lines = svg.append('g')
+        .attr('class', 'lines')
         .datum(data[0][4].Years) // 10. Binds data to the line
-        .attr("class", "line") // Assign a class for styling
+        .append('g')
+        .attr('class', 'line-group')
+        .append("g")
+        .attr("id", data[0][4]["Country Name"])
+        .attr("clip-path", "url(#clip)")
+        .append('path')
+        .attr('class', 'line')
+        // .attr('id', data[0][4]["Country Name"])
         .attr("d", line) // 11. Calls the line generator
-    svg.selectAll(".dot")
-        .data(data[0][4].Years)
+
+    // lines.selectAll("circle-group")
+    // lines.selectAll(".dot")
+    svg.select(".lines")
+    .append('g')
+    .attr("class", "circle-group")
+    .append("g")
+    .attr("id", data[0][4]["Country Name"])
+    .attr("clip-path", "url(#clip)")
+      .selectAll(".dot")
+      .data(data[0][4].Years)
+
       .enter().append("circle") // Uses the enter().append() method
         .attr("class", "dot") // Assign a class for styling
         .attr("cx", function(d) { return xScale(new Date(d.year)) })
@@ -130,7 +158,7 @@ window.onload = function() {
           .on("mouseover", function(a, b, c) {
             d3.select(this)
             .style("fill", "#000000")
-            console.log(a)
+            // console.log(a)
           })
           .on("mouseout", function() {
             d3.select(this)
@@ -151,6 +179,44 @@ window.onload = function() {
   // focus.append("circle")
   //     .attr("r", 4.5);
   }
+  function checkbox(data){
+
+    d3.select("#area2").select("#row_1")
+      .attr("class", "form-check")
+
+      .append("input")
+      .attr("class", "form-check-input")
+      .attr("id", "myCheckBox")
+      .attr("type", "checkbox")
+
+      .attr("value", "checked")
+      .attr("id", "defaultCheck1")
+    d3.select(".form-check")
+      .append("label")
+      .attr("class","form-check-label")
+      .attr("for", "defaultCheck1")
+      .html("Compare Countries")
+
+    $(document).ready(function(){
+        $('input[type="checkbox"]').click(function(){
+            if($(this).is(":checked")){
+              console.log("hoi");
+
+            }
+            else if($(this).is(":not(:checked)")){
+              console.log("doi");
+              // emptyGraph()
+            }
+        });
+    });
+
+    // d3.select("#defaultCheck1").on("change", function(){
+    //   console.log(this.value);
+    // });
+
+
+}
+
   function slider(data){
       // add slidebar
     d3.select("#slider").append("div")
@@ -206,63 +272,209 @@ window.onload = function() {
       top: top,
       bottom: bottom,
     }
-    var temp_list_1 = []
-    data.Years.forEach(function(element){
-      temp_list_1.push(element.year)
-    })
-    let min_1 = Math.min(...temp_list_1);
-    let max_1 = Math.max(...temp_list_1);
 
-    var xScale = d3.scaleTime()
-      .domain([new Date(min_1.toString()),new Date(max_1.toString())])
-      .range([0, properties.width])
+    if($('input[type="checkbox"]').is(":checked")){
+      console.log("inside checked");
+      var temp_list_1 = []
+      data.Years.forEach(function(element){
+        temp_list_1.push(element.year)
+      })
+      let min_1 = Math.min(...temp_list_1);
+      let max_1 = Math.max(...temp_list_1);
 
-    var temp_list = []
-    data.Years.forEach(function(element){
-      temp_list.push(element.value)
-    })
+      var xScale = d3.scaleTime()
+        .domain([new Date(min_1.toString()),new Date(max_1.toString())])
+        .range([0, properties.width])
 
-    let min = Math.min(...temp_list);
-    let max = Math.max(...temp_list);
+      var yScale = d3.scaleLinear()
+        .domain([0, 100]).nice()
+        .range([properties.height, 0]);
 
-    // scale.range aanpassen
-    var yScale = d3.scaleLinear()
-      .domain([min, max]).nice()
-      .range([properties.height, 0]);
+      d3.select(".y_axis")
+       .transition()
+       .duration(1000)
+       .call(d3.axisLeft(yScale));
 
-    d3.select(".y_axis")
-     .transition()
-     .duration(1000)
-     .call(d3.axisLeft(yScale));
+      var line = d3.line()
+        .x(function(d) {
+          // console.log(d);
+          return xScale(new Date(d.year)); }) // set the x values for the line generator
+        .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
+        .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-    var line = d3.line()
-      .x(function(d) {return xScale(new Date(d.year)); }) // set the x values for the line generator
-      .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
-      .curve(d3.curveMonotoneX) // apply smoothing to the line
+      // d3.select(".line")
+      //   .attr('id', data["Country Name"])
+      //   .datum(data.Years)
+      //   .transition()
+      //   .duration(1000)
+      //   // .attr("class", "line")
+      //   .attr("d", line)
 
-    d3.select(".line")
-      .datum(data.Years)
-      .transition()
-      .duration(1000)
-      // .attr("class", "line")
-      .attr("d", line)
+      // console.log(data);
+      data_list.push(currentData)
+      data_list.push(data.Years)
+      // console.log(data_list);
+      // console.log(data["Country Name"]);
+      // // d3.select(".line-group").select("#" + data["Country Name"])
+      // if(d3.select(".line-group").select("#" + data["Country Name"]).empty()) {
+      //   console.log("zit er nog niet in");
+      // }
+      // else {
+      //   console.log("zit er al in");
+      // }
+      let lines = d3.selectAll(".line-group").selectAll("path").data(data_list)
+      // console.log(data_list);
+      lines.exit()
+          .remove()
 
-    d3.selectAll(".dot")
-      .data(data.Years)
-      .transition()
-      .duration(1000)
-      .attr("cx", function(d) { return xScale(new Date(d.year)) })
-      .attr("cy", function(d) { return yScale(d.value) })
+      lines.enter()
+          .append("g")
+          .attr("id", data["Country Name"])
+          .attr("clip-path", "url(#clip)")
+          .append("path")
+          .transition()
+          .duration(1000)
+          .attr('class', 'line')
+          // .attr('id', data["Country Name"])
+          .attr("d", line)
+
+      lines.transition()
+          .duration(1000)
+          .attr('class', 'line')
+          .attr("d", line)
+      //
+      // let circles = d3.selectAll(".circle-group").selectAll("circle").data(data_list)
+      // // console.log(data_list);
+      // circles.exit()
+      //       .remove()
+      //
+      // circles.enter()
+      //     .append("g")
+      //     .attr("id", data["Country Name"])
+      //     .attr("clip-path", "url(#clip)")
+      //     .append("circle")
+      //     .transition()
+      //     .duration(1000)
+      //     .attr('class', 'dot')
+      //     .attr("cx", function(d) { return xScale(new Date(d.year)) })
+      //     .attr("cy", function(d) { return yScale(d.value) })
+      //
+      //
+      // circles.transition()
+      //     .duration(1000)
+      //     .attr('class', 'dot')
+      //     .attr("cx", function(d) {
+      //       return xScale(new Date(d.year)) })
+      //     .attr("cy", function(d) { return yScale(d.value) })
+      //     .attr("r", 5)
+      let circles = d3.selectAll(".circle-group").selectAll("circle").data(data_list)
+      // console.log(data_list);
+      circles.exit()
+          .remove()
+
+      circles.enter()
+          .append("g")
+          .attr("id", data["Country Name"])
+          .attr("clip-path", "url(#clip)")
+          .append("circle")
+          .transition()
+          .duration(1000)
+          .attr('class', 'dot')
+          // .attr('id', data["Country Name"])
+          .attr("cx", function(d) { return xScale(new Date(d.year)) })
+          .attr("cy", function(d) { return yScale(d.value) })
+
+      circles.transition()
+          .duration(1000)
+          .attr('class', 'dot')
+          .attr("cx", function(d) { return xScale(new Date(d.year)) })
+          .attr("cy", function(d) { return yScale(d.value) })
+    // svg.select(".lines")
+    // .append('g')
+    // .attr("class", "circle-group")
+    //   .selectAll(".dot")
+    //   .data(data[0][4].Years)
+    //
+    //   .enter().append("circle") // Uses the enter().append() method
+    //     .attr("class", "dot") // Assign a class for styling
+    //     .attr("cx", function(d) { return xScale(new Date(d.year)) })
+    //     .attr("cy", function(d) { return yScale(d.value) })
+    //     .attr("r", 5)
+
+
+      // lines.enter().append('path')
+
+      // // lines.exit().remove(); //remove any paths that have been removed from   the array that no longer associated data
+      // let linesEnter = lines.enter().append("path"); // looks at data not associated with path and then pairs it
+      // lines = linesEnter.merge(lines);
+      //       // .attr('class', 'line')
+      //       // .attr("d", line) // 11. Calls the line generator
+
+        // linesEnter.attr('class', 'line')
+        // .attr("d", line) // 11. Calls the line generator
+    }
+    else if($('input[type="checkbox"]').is(":not(:checked)")){
+      console.log("inside not checked");
+      currentData = data
+      console.log(currentData);
+      var temp_list_1 = []
+      data.Years.forEach(function(element){
+        temp_list_1.push(element.year)
+      })
+      let min_1 = Math.min(...temp_list_1);
+      let max_1 = Math.max(...temp_list_1);
+
+      var xScale = d3.scaleTime()
+        .domain([new Date(min_1.toString()),new Date(max_1.toString())])
+        .range([0, properties.width])
+
+      var temp_list = []
+      data.Years.forEach(function(element){
+        temp_list.push(element.value)
+      })
+
+      let min = Math.min(...temp_list);
+      let max = Math.max(...temp_list);
+
+      // scale.range aanpassen
+      var yScale = d3.scaleLinear()
+        .domain([min, max]).nice()
+        .range([properties.height, 0]);
+
+      d3.select(".y_axis")
+       .transition()
+       .duration(1000)
+       .call(d3.axisLeft(yScale));
+
+      var line = d3.line()
+        .x(function(d) {return xScale(new Date(d.year)); }) // set the x values for the line generator
+        .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
+        .curve(d3.curveMonotoneX) // apply smoothing to the line
+
+      d3.select(".line")
+        .attr('id', data["Country Name"])
+        .datum(data.Years)
+        .transition()
+        .duration(1000)
+        // .attr("class", "line")
+        .attr("d", line)
+
+      d3.selectAll(".dot")
+        .data(data.Years)
+        .transition()
+        .duration(1000)
+        .attr("cx", function(d) { return xScale(new Date(d.year)) })
+        .attr("cy", function(d) { return yScale(d.value) })
 
 
 
 
-        // svg.append("path")
-        //     .datum(data[0][4].Years) // 10. Binds data to the line
-        //     .attr("class", "line") // Assign a class for styling
-        //     .attr("d", line) // 11. Calls the line generator
+          // svg.append("path")
+          //     .datum(data[0][4].Years) // 10. Binds data to the line
+          //     .attr("class", "line") // Assign a class for styling
+          //     .attr("d", line) // 11. Calls the line generator
+    }
   }
-
   function barchart(data){
 
     var barPadding = 45;
@@ -401,7 +613,7 @@ window.onload = function() {
                     });
                  })
                 .on('click', function(d){
-                  updateLineGraph(d)
+                  addLine(d)
                 })
 
     /* made legend with help of:
@@ -597,13 +809,92 @@ window.onload = function() {
               });
           })
           .on('click', function(d){
-            // updateLineGraph(d)
-            addLine(d)
-          })
+            // $(document).ready(function(){
+              // $().click(function(){
+                  updateLineGraph(d)
+                })
+              // });
+            // });
+
+
+
+  }
+  function emptyGraph(data){
+    console.log(currentData);
+
+    var barPadding = 45;
+    var top = 20;
+    var right = 50;
+    var bottom = 50;
+    var left = 50;
+
+    // set barchart svg properties
+    var properties = {
+      width: 600 - left - right,
+      height: 500 - top - bottom,
+      padding: 0,
+      left: left,
+      right: right,
+      top: top,
+      bottom: bottom,
+    }
+    // console.log(d3.select(".line")["_groups"][0]);
+    // data[0].forEach(function(element){
+    //   console.log(element["Country Name"]);
+    // })
+    // scale.range aanpassen
+    // var yScale = d3.scaleLinear()
+    //   .domain([0, 100])
+    //   .range([properties.height, 0]);
+    //
+    // var yAxis = d3.axisLeft(yScale)
+    //
+    // d3.select(".y_axis")
+    //  .transition()
+    //  .duration(1000)
+    //  .call(d3.axisLeft(yScale));
+    //
+    // var line = d3.line()
+    //   .x(function(d) {return xScale(new Date(d.year)); }) // set the x values for the line generator
+    //   .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
+    //   .curve(d3.curveMonotoneX) // apply smoothing to the line
+    //
+    // d3.select(".line")
+    //   .datum(data.Years)
+    //   .transition()
+    //   .duration(1000)
+    //   // .attr("class", "line")
+    //   .attr("d", line)
+    //
+    // d3.selectAll(".dot")
+    //   .data(data.Years)
+    //   .transition()
+    //   .duration(1000)
+    //   .attr("cx", function(d) { return xScale(new Date(d.year)) })
+    //   .attr("cy", function(d) { return yScale(d.value) })
+
+
   }
   function addLine(data){
+    var barPadding = 45;
+    var top = 20;
+    var right = 50;
+    var bottom = 50;
+    var left = 50;
+
+    // set barchart svg properties
+    var properties = {
+      width: 600 - left - right,
+      height: 500 - top - bottom,
+      padding: 0,
+      left: left,
+      right: right,
+      top: top,
+      bottom: bottom,
+    }
+
         var temp_list_1 = []
-        data[0][4].Years.forEach(function(element){
+        data.Years.forEach(function(element){
           temp_list_1.push(element.year)
         })
         let min_1 = Math.min(...temp_list_1);
@@ -614,7 +905,7 @@ window.onload = function() {
           .range([0, properties.width])
 
         var temp_list = []
-        data[0][4].Years.forEach(function(element){
+        data.Years.forEach(function(element){
           temp_list.push(element.value)
         })
 
@@ -623,36 +914,79 @@ window.onload = function() {
 
         // scale.range aanpassen
         var yScale = d3.scaleLinear()
-          .domain([min, max]).nice()
+          .domain([0, 100])
           .range([properties.height, 0]);
 
         var color = d3.scaleOrdinal(d3.schemeCategory10);
 
         /* Add Axis into SVG */
         var xAxis = d3.axisBottom(xScale)
-                      .ticks(Object.keys(data[0][4].Years).length/2)
+                      .ticks(Object.keys(data.Years).length/2)
         var yAxis = d3.axisLeft(yScale)
 
-        svg.append("g")
-          .attr("class", "x_axis")
-          .attr("transform", `translate(0, ${properties.height})`)
-          .call(xAxis);
+        d3.select(".y_axis")
+         .transition()
+         .duration(1000)
+         .call(d3.axisLeft(yScale));
 
-        svg.append("g")
-          .attr("class", "y_axis")
-          .call(yAxis)
+        // svg.append("g")
+        //   .attr("class", "x_axis")
+        //   .attr("transform", `translate(0, ${properties.height})`)
+        //   .call(xAxis);
+
+        // svg.append("g")
+        //   .attr("class", "y_axis")
+        //   .call(yAxis)
 
         var line = d3.line()
           .x(function(d) {return xScale(new Date(d.year)); }) // set the x values for the line generator
           .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
           .curve(d3.curveMonotoneX) // apply smoothing to the line
 
-        svg.append("path")
-            .datum(data[0][4].Years) // 10. Binds data to the line
+    // var lines = svg.append('g')
+    //     .attr('class', 'lines')
+    //     .datum(data[0][4].Years) // 10. Binds data to the line
+    //     .append('g')
+    //     .attr('class', 'line-group')
+    //     .append('path')
+    //     .attr('class', 'line')
+    //     .attr("d", line) // 11. Calls the line generator
+
+        var svg = d3.select(".lines")
+        // svg.append("path")
+            .datum(data.Years) // 10. Binds data to the line
+            .append('g')
+            .attr('class', 'line-group')
+            .append('path')
             .attr("class", "line") // Assign a class for styling
             .attr("d", line) // 11. Calls the line generator
-        svg.selectAll(".dot")
-            .data(data[0][4].Years)
+
+// svg.select(".line-group")
+//   .selectAll(".dot")
+//   .data(data[0][4].Years)
+//   .enter().append("circle") // Uses the enter().append() method
+//     .attr("class", "dot") // Assign a class for styling
+//     .attr("cx", function(d) { return xScale(new Date(d.year)) })
+//     .attr("cy", function(d) { return yScale(d.value) })
+//     .attr("r", 5)
+
+    // svg.select(".lines")
+    // .append('g')
+    // .attr("class", "circle-group")
+    //   .selectAll(".dot")
+    //   .data(data[0][4].Years)
+    //
+    //   .enter().append("circle") // Uses the enter().append() method
+    //     .attr("class", "dot") // Assign a class for styling
+    //     .attr("cx", function(d) { return xScale(new Date(d.year)) })
+    //     .attr("cy", function(d) { return yScale(d.value) })
+    //     .attr("r", 5)
+
+        d3.select(".lines")
+        .append('g')
+        .attr("class", "circle-group")
+        .selectAll(".dot")
+            .data(data.Years)
           .enter().append("circle") // Uses the enter().append() method
             .attr("class", "dot") // Assign a class for styling
             .attr("cx", function(d) { return xScale(new Date(d.year)) })

@@ -87,11 +87,15 @@ alleen de punten zijn een probleem. Ben al de hele dag bezig geweest met het
 verplaatsen van de punten maar het werkt nog niet.
 
 #day 11
-Gister is het eindelijk gelukt om de puntjes te updaten. Nu kan ik lijnen toevoegen
+Vandaag is het eindelijk gelukt om de puntjes te updaten. Nu kan ik lijnen toevoegen
 waardoor verschillende landen vergeleken kunnen worden. Verder ook meteen toegegvoegd
 dat je lijnen kan verwijderen als je er op drukt. Ben nu bezig met de overgang
 van vergelijken naar wisselen tussen landen soepeler te maken. Dus als je vergelijken
 uitvinkt dat niet alles crashed.
 
 # day 12
- 
+Vandaag veel bugs weggevangen bij het vergelijken van de landen. Het switchen tussen
+het vergelijken en niet vergelijken van landen gaat nu soepel. Dit kostte allemaal best
+veel tijd. Er zitten nog een aantal vage bugs in die er voor zorgen dat de puntjes soms
+niet worde geupdate. Dit komt waarschijnlijk door het verkeerd toevoegen en verwijderen
+van landen aan de lijst van actieve landen. Hier ga ik morgen mee verder.

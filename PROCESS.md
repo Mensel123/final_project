@@ -84,4 +84,14 @@ maar zonder de update functie, dat zal ik morgen moeten doen.
 # day 10
 Nu dus verder gegaan met de update functie. Het toevoegen van lijnen gaat goed
 alleen de punten zijn een probleem. Ben al de hele dag bezig geweest met het
-verplaatsen van de punten maar het werkt nog niet.  
+verplaatsen van de punten maar het werkt nog niet.
+
+#day 11
+Gister is het eindelijk gelukt om de puntjes te updaten. Nu kan ik lijnen toevoegen
+waardoor verschillende landen vergeleken kunnen worden. Verder ook meteen toegegvoegd
+dat je lijnen kan verwijderen als je er op drukt. Ben nu bezig met de overgang
+van vergelijken naar wisselen tussen landen soepeler te maken. Dus als je vergelijken
+uitvinkt dat niet alles crashed.
+
+# day 12
+ 

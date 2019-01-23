@@ -31,13 +31,14 @@ window.onload = function() {
       //   bottom: bottom,
       // }
 
-
+      globalData = response
       data = map(response);
 
-      barchart(response)
+      barchart(response, tip)
       checkbox(response)
       linechart(response)
       slider(data)
+      createCountryList(response)
       // logscale()
       // draw_chart(properties);
     }).catch(function(e){
@@ -494,250 +495,9 @@ window.onload = function() {
       updateBar(data, output.innerHTML)
     }
   }
-  function barchart(data){
-
-    var barPadding = 45;
-    var top = 20;
-    var right = 50;
-    var bottom = 100;
-    var left = 120;
-
-    // set barchart svg properties
-    var properties = {
-      width: 1400 - left - right,
-      height: 500 - top - bottom,
-      padding: 18,
-      left: left,
-      right: right,
-      top: top,
-      bottom: bottom,
-    }
-    // create svg
-    var svg = d3.select("body")
-                .append("svg")
-                .attr("class", "barchart")
-                .attr("width", properties.width +
-                      properties.left + properties.right)
-                .attr("height", properties.height +
-                      properties.top + properties.bottom)
-                .append("g")
-                .attr("transform", "translate(" + properties.left +
-                      "," + properties.top + ")");
-
-    // make x and y scales
-    var yScale = d3.scaleLinear()
-                   .domain([0,100])
-                   .range([properties.height,0]);
-    var xScale = d3.scaleBand()
-                   .domain(data[0].length)
-                   .range([0, properties.width])
-
-    // make axis
-    var xAxis = d3.axisBottom()
-                  .scale(xScale)
-                  .ticks(data[0].length)
-    var yAxis = d3.axisLeft()
-                  .scale(yScale)
 
 
 
-    svg.append("g")
-       .attr("class", "y axis")
-       .call(yAxis);
-
-    svg.append("g")
-       .attr("class", "x axis")
-       .attr("transform", "translate(0," + properties.height + ")")
-       .call(xAxis)
-       .selectAll("text")
-          .style("text-anchor", "end")
-          .attr("dx", "-.8em")
-          .attr("dy", ".15em")
-          .attr("transform", "rotate(-20)")
-
-    // set bar colours
-    // var color = d3.scaleOrdinal()
-    //               .range(["#4061bd" , "#b156b7", "#ff6e54"])
-    //               .domain(["Average Life Expectancy",
-    //               "Inequality-Adjusted Life Expectancy", "Happy Life Years"])
-
-    // var colors= Object.keys(data.Afghanistan);
-    // console.log(data[0]);
-    // console.log(data[0][0].Years[0].value);
-    // create bars
-    rects = svg.selectAll("rect")
-               .data(data[0])
-               .enter()
-               .append("rect")
-               .attr("class", "bar")
-
-               // determine x and y value for bar d
-               .attr("x", function(d, i) {
-                 // console.log(d);
-                 // console.log(yScale(d['1990']));
-                return (i * (properties.width /
-                  data[0].length));
-               })
-               .attr("y", function(d) {
-          	   	return yScale(d.Years[0].value);
-          	   })
-
-               // determine height, width and color
-               .attr("height", function(d){
-                 // console.log(properties.height - yScale(d['1990']));
-                 return(properties.height - yScale(d.Years[0].value))
-               })
-               .attr("width", properties.width/data[0].length)
-               .style('fill', "#00000")
-
-               // show tip when mouse hovers over bar
-               .on('mouseover',function(d){
-
-                tip.show(d)
-                d3.select(this)
-                  .style("opacity", 0.6)
-                  .style("stroke","white")
-                  .style("stroke-width",3);
-
-                activeCountry = d["Country Name"].split(' ').join('')
-                d3.select(".countries").selectAll("path")
-                  .classed("barLight", function(d) {
-                    if ( d["Country Name"].split(' ').join('') == activeCountry) {
-                      d3.select(this)
-                        .style("opacity", 0.6)
-                        .style("stroke","white")
-                        .style("stroke-width",3);
-                        return true
-                    }
-                    else return false;
-                  });
-                })
-               .on('mouseout', function(d){
-                 tip.hide(d);
-                 d3.select(this)
-                   .style("opacity", 1)
-                   .style("stroke","white")
-                   .style("stroke-width",0.3);
-                  activeCountry = d["Country Name"].split(' ').join('')
-                  d3.select(".countries").selectAll("path")
-                    .classed("barLight", function(d) {
-                      if ( d["Country Name"].split(' ').join('') == activeCountry) {
-                        d3.select(this)
-                           .style("opacity", 1)
-                           .style("stroke","white")
-                           .style("stroke-width",0.3);
-                          return true
-                      }
-                      else return false;
-                    });
-                 })
-                .on('click', function(d){
-                  updateLineGraph(d)
-                })
-
-    /* made legend with help of:
-    Source: https://bl.ocks.org/Jverma/076377dd0125b1a508621441752735fc */
-
-    //create legend element
-    // var legend = svg.selectAll('legend')
-    //           			.data(colors)
-    //           			.enter().append('g')
-    //           			.attr('class', 'legend')
-    //           			.attr('transform', function(d,i)
-    //                   {
-    //                     return 'translate(0,' + i * 20 + ')';
-    //                   });
-    //
-    // // add coloured rectangles after the country name to the legend
-  	// legend.append('rect')
-    // 			.attr('x', properties.width + 35)
-    //       .attr('y', -72)
-    // 			.attr('width', 18)
-    // 			.attr('height', 18)
-    // 			.style('fill', '#000000');
-    //
-  	// // add names of each country to the legend
-  	// legend.append('text')
-    // 			.attr('x', properties.width + 30)
-    // 			.attr('y', -65)
-    // 			.attr('dy', '.35em')
-    // 			.style('text-anchor', 'end')
-    // 			.text(function(d){ return d; });
-    //
-    // // add y-label
-    // svg.append('text')
-    //    .attr("class", "yLabel")
-    //    .attr('x', -200)
-    //    .attr('y', -40)
-    //    .attr('transform', 'rotate(-90)')
-    //    .attr('text-anchor', 'middle')
-    //    .text("Years")
-    //
-    // // add error message when no data is available
-    // svg.append('text')
-    //   .style("opacity", 0)
-    //   .attr("class", "error_message")
-    //   .attr('x', 200)
-    //   .attr('y', 150)
-    //   .attr('text-anchor', 'middle')
-    //   .text("No Data Available")
-
-
-  }
-
-  function updateBar(data, year){
-        var barPadding = 45;
-        var top = 20;
-        var right = 50;
-        var bottom = 100;
-        var left = 120;
-
-        // set barchart svg properties
-        var properties = {
-          width: 1000 - left - right,
-          height: 500 - top - bottom,
-          padding: 18,
-          left: left,
-          right: right,
-          top: top,
-          bottom: bottom,
-        }
-    var yScale = d3.scaleLinear()
-                   .domain([0,100])
-                   .range([properties.height,0]);
-
-    d3.select(".barchart").selectAll(".bar")
-      .transition()
-      .ease(d3.easeExp)
-      .duration(1000)
-      .attr("y", function(d) {
-        // console.log(d);
-        // console.log(color(year));
-        var new_y
-        d.Years.forEach(function(element){
-          if(element.year === year){
-
-           new_y =  yScale(element.value);
-          }
-        })
-        return new_y
-       })
-
-
-       // determine height, width and color
-       .attr("height", function(d){
-           // console.log(color(year));
-           var new_height
-           d.Years.forEach(function(element){
-             if(element.year === year){
-              new_height =  properties.height - yScale(element.value);
-             }
-           })
-           return new_height
-          })
-
-
-  }
   function map(data) {
     var margin = {top: 0, right: 0, bottom: -100, left: 0},
                 width = 960 - margin.left - margin.right,
@@ -830,13 +590,9 @@ window.onload = function() {
           .on('click', function(d){
             // $(document).ready(function(){
               // $().click(function(){
+                // console.log(d);
                   updateLineGraph(d)
                 })
-              // });
-            // });
-
-
-
   }
   function emptyGraph(data){
     console.log(currentData);
@@ -1050,5 +806,124 @@ window.onload = function() {
   }
     /* this function adds functionality to the sliderbar
   source: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+
+function createCountryList(data) {
+
+  countriesList = [];
+  // console.log(data);
+  data[0].forEach(function(country) {
+    // console.log(country);
+    countriesList.push(country["Country Name"])
+  });
+  // console.log(countriesList);
+
+  autocomplete(document.getElementById("myInput"), countriesList);
+}
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              getCountry(inp.value)
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+}
+function getCountry(input){
+  globalData[0].forEach(function(country) {
+    // console.log(country);
+    if(country["Country Name"] === input){
+      updateLineGraph(country)
+    }
+  });
+  console.log(input);
+}
 
 }

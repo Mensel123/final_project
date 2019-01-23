@@ -110,3 +110,6 @@ land gedrukt kan worden als de animatie van de vorige is afgelopen. Hierdoor kan
 maar 1 voor 1 toevoegen wat bugs in de transitie voorkomt. Dus hij is helemaal bug vrij.
 Verder heb ik ook een form toegoegd waarin je landen kan opzoeken om in de lijngrafiek
 weer te geven. Dit werkt ook samen met de compare functie.
+Verder ook een text label toegevoegd in de lijngrafiek waarin wordt staat welk
+land in de lijngrafiek wordt weergegeven. Ik moet nog fixen dat dit verdwijnt
+als de compare functie wordt aangezet

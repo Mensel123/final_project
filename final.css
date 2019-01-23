@@ -1,4 +1,6 @@
-
+.error_message{
+  font-size: 30px;
+}
 * { box-sizing: border-box; }
 body {
   font: 16px Arial;

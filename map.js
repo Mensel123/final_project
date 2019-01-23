@@ -16,7 +16,8 @@ function map(data, tip) {
               .attr("width", width)
               .attr("height", height)
               .append('g')
-              .attr('class', 'map');
+              .attr('class', 'map')
+              .attr("id", 'map_id')
 
   var projection = d3.geoMercator()
                      .scale(130)
@@ -26,6 +27,12 @@ function map(data, tip) {
 
   svg.call(tip);
 
+//   document.getElementById("map_id").addEventListener("mousemove", myFunction);
+//
+// function myFunction() {
+//   document.getElementById("demo").innerHTML = Math.random();
+// }
+ var n = 0;
   svg.append("g")
      .attr("class", "countries")
      .selectAll("path")
@@ -70,6 +77,8 @@ function map(data, tip) {
             .style("stroke-width",0.3);
 
           activeCountry = d["Country Name"].split(' ').join('')
+
+
           d3.select(".barchart").selectAll(".bar")
             .classed("barLight", function(d) {
               if ( d["Country Name"].split(' ').join('') == activeCountry) {
@@ -85,7 +94,40 @@ function map(data, tip) {
         })
         .on('click', function(d){
                 updateLineGraph(d)
-        })
+                // d3.selectAll('path').on('click', null)
+                // d3.selectAll('path').on('click', )
+              })
+        // .on('click', function(d){
+        //         updateLineGraph(d)
+        //         // d3.selectAll('path').on('click', null)
+
+
+        // })
+        // d3.selectAll('path').on('click', [])
+       // .each(function() { // I believe you could do this with .on('start', cb) but I haven't tested it
+       //     n++;
+       // })
+       // .transition()
+       // .on('end', function() { // use to be .each('end', function(){})
+       //     n--;
+       //     if (!n) {
+       //         console.log("einde");
+       //     }
+       // })
+        // .on("click", function(d) {
+        //   updateLineGraph(d);
+        //   noClick();
+        // });
+        // // .on("start", console.log("start"))
+        //
+        // function noClick(){
+        //   d3.event.preventDefault();
+        // }
+
+
+
+
+
 }
 
 function updateMap(data, year){

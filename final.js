@@ -44,6 +44,7 @@ window.onload = function() {
       .attr("for", "defaultCheck1")
       .html("Compare Countries")
 
+
     $(document).ready(function(){
         $('input[type="checkbox"]').click(function(){
             if($(this).is(":checked")){

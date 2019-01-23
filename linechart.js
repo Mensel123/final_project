@@ -105,12 +105,12 @@ function linechart(data){
             .style("fill", "#ffab00")
           })
   svg.append('text')
-  .style("opacity", 0.8)
+  .style("opacity", 0.4)
   .attr("class", "error_message")
-  .attr('x', 200)
-  .attr('y', 150)
+  .attr('x', "40%")
+  .attr('y', "40%")
   .attr('text-anchor', 'middle')
-  .text("No Data Available")
+  .text(data[0][4]["Country Name"])
 }
 function updateLineGraph(data){
   var barPadding = 45;
@@ -176,19 +176,45 @@ function updateLineGraph(data){
       })
 
       let lines = d3.selectAll(".line-group").selectAll("path").data(lines_list)
-
+      var n = 0;
       lines.enter().append("path")
            .transition()
            .delay(850)
-           .duration(1000)
+           // .duration(500)
            .attr('class', 'line')
            .attr('id', data["Country Name"].split(' ').join(''))
            .attr("d", line)
+
+
+           .each(function() { // I believe you could do this with .on('start', cb) but I haven't tested it
+               n++;
+               console.log("begin");
+               d3.selectAll('path').on('click', null)
+           })
+           .transition()
+           .on('end', function() { // use to be .each('end', function(){})
+               n--;
+
+               if (!n) {
+                   console.log("einde");
+                   d3.selectAll('path').on('click', function(d){
+                                 updateLineGraph(d)
+                               })
+               }
+           })
+          // .each(function() { // I believe you could do this with .on('start', cb) but I haven't tested it
+          //     n++;
+          // })
+          // .transition()
+
+
+
 
       lines.transition()
            .duration(1000)
            .attr('class', 'line')
            .attr("d", line)
+
 
       for(var i = 0; i < data_list.length; i++){
 
@@ -207,10 +233,12 @@ function updateLineGraph(data){
                .attr("r", 5)
 
 
+
         circles.transition()
                .duration(1000)
                .attr("cx", function(d) { return xScale(new Date(d.year)) })
                .attr("cy", function(d) { return yScale(d.value) })
+
 
       }
       d3.selectAll("circle")
@@ -232,6 +260,7 @@ function updateLineGraph(data){
             }
           })
         })
+
     }
   }
   else if($('input[type="checkbox"]').is(":not(:checked)")){
@@ -287,5 +316,30 @@ function updateLineGraph(data){
         .duration(1000)
         .attr("cx", function(d) { return xScale(new Date(d.year)) })
         .attr("cy", function(d) { return yScale(d.value) })
+
+      d3.select(".error_message")
+        .transition()
+          .duration(300)
+          .style("opacity", 0)
+          .delay(300)
+          .transition()
+          .duration(500)
+          .text(data["Country Name"])
+          .style("opacity", 0.4)
+
+
+
+            // d3.select(".linechart").append("error_message")
+            //     .style("opacity", 0)
+            //     .text(data["Country Name"])
+            //   .transition(t)
+            //     .style("opacity", 1)
+            //   .transition()
+            //     .delay(1500)
+            //     .on("start", repeat);
+    // });
+
+
+
     }
 }

@@ -99,3 +99,14 @@ het vergelijken en niet vergelijken van landen gaat nu soepel. Dit kostte allema
 veel tijd. Er zitten nog een aantal vage bugs in die er voor zorgen dat de puntjes soms
 niet worde geupdate. Dit komt waarschijnlijk door het verkeerd toevoegen en verwijderen
 van landen aan de lijst van actieve landen. Hier ga ik morgen mee verder.
+
+# dag 13
+Vandaag is de compare functie eindelijk bug vrij!! Het ging niet goed met het uitzetten
+van de compare functie. Ik hou namelijk een lijst bij welke landen er in de grafiek zitten
+als compare staat aangevinkt. Ik maakt deze lijst alleen niet goed leeg als ik
+de compare functie uitzette waardoor het updaten naar 1 lijn niet goed ging bij het uitzetten
+van de compare functie. Verder is het me ook gelukt om te zorgen dat er pas op een volgend
+land gedrukt kan worden als de animatie van de vorige is afgelopen. Hierdoor kan je landen
+maar 1 voor 1 toevoegen wat bugs in de transitie voorkomt. Dus hij is helemaal bug vrij.
+Verder heb ik ook een form toegoegd waarin je landen kan opzoeken om in de lijngrafiek
+weer te geven. Dit werkt ook samen met de compare functie.

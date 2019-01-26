@@ -1,7 +1,7 @@
 function map(data, tip) {
-  var margin = {top: 0, right: 0, bottom: -100, left: 0},
+  var margin = {top: 0, right: 0, bottom: 0, left: 0},
               width = 960 - margin.left - margin.right,
-              height = 500 - margin.top - margin.bottom;
+              height = 400 - margin.top - margin.bottom;
 
   // scale green to amount of trees, but how?
   var color = d3.scaleThreshold()
@@ -11,13 +11,26 @@ function map(data, tip) {
 
   var path = d3.geoPath();
 
-  var svg = d3.select("#area1")
-              .append("svg")
-              .attr("width", width)
-              .attr("height", height)
-              .append('g')
-              .attr('class', 'map')
-              .attr("id", 'map_id')
+  // var svg = d3.select("#area1")
+  //             .append("svg")
+  //             .attr("width", width)
+  //             .attr("height", height)
+  //             .append('g')
+  //             .attr('class', 'map')
+  //             .attr("id", 'map_id')
+
+  var svg = d3.select('#area1')
+  .append("svg")
+    // .attr("width", '100%')
+    // .attr("height", '100%')
+    // .attr('viewBox','0 0 '+Math.min(width,height)+' '+Math.min(width,height))
+    // .attr('preserveAspectRatio','xMinYMin')
+    // .append("g")
+    // .attr("transform", "translate(" + Math.min(width,height) / 2 + "," + Math.min(width,height) / 2 + ")")
+    .attr("viewBox", [0, 0, (width + margin.right + margin.left),
+                        (height + margin.top + margin.bottom)].join(' '))
+    .attr('class', 'map')
+    .attr("id", 'map_id')
 
   var projection = d3.geoMercator()
                      .scale(130)

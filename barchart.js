@@ -3,13 +3,13 @@ function barchart(data, tip){
   var barPadding = 45;
   var top = 20;
   var right = 50;
-  var bottom = 100;
-  var left = 120;
+  var bottom = 50;
+  var left = 50;
 
   // set barchart svg properties
   var properties = {
     width: 1400 - left - right,
-    height: 500 - top - bottom,
+    height: 300 - top - bottom,
     padding: 18,
     left: left,
     right: right,
@@ -20,10 +20,8 @@ function barchart(data, tip){
   var svg = d3.select("body")
               .append("svg")
               .attr("class", "barchart")
-              .attr("width", properties.width +
-                    properties.left + properties.right)
-              .attr("height", properties.height +
-                    properties.top + properties.bottom)
+              .attr("viewBox", [0, 0, (properties.width + properties.right + properties.left),
+                                  (properties.height + properties.top + properties.bottom)].join(' '))
               .append("g")
               .attr("transform", "translate(" + properties.left +
                     "," + properties.top + ")");
@@ -109,7 +107,7 @@ function barchart(data, tip){
                d3.select(this)
                  .style("opacity", 1)
                  .style("stroke","white")
-                 .style("stroke-width",0.3);
+                 .style("stroke-width",0);
                 activeCountry = d["Country Name"].split(' ').join('')
                 d3.select(".countries").selectAll("path")
                   .classed("barLight", function(d) {
@@ -126,35 +124,21 @@ function barchart(data, tip){
               .on('click', function(d){
                 updateLineGraph(d)
               })
+  svg.append("text")
+      .attr("transform",
+            "translate(" + (properties.width/2) + " ," +
+                           (properties.height + properties.top + 10) + ")")
+    .style("text-anchor", "middle")
+    .text("Countries");
 
-  /* made legend with help of:
-  Source: https://bl.ocks.org/Jverma/076377dd0125b1a508621441752735fc */
-
-  //create legend element
-  // var legend = svg.selectAll('legend')
-  //           			.data(colors)
-  //           			.enter().append('g')
-  //           			.attr('class', 'legend')
-  //           			.attr('transform', function(d,i)
-  //                   {
-  //                     return 'translate(0,' + i * 20 + ')';
-  //                   });
-  //
-  // // add coloured rectangles after the country name to the legend
-	// legend.append('rect')
-  // 			.attr('x', properties.width + 35)
-  //       .attr('y', -72)
-  // 			.attr('width', 18)
-  // 			.attr('height', 18)
-  // 			.style('fill', '#000000');
-  //
-	// // add names of each country to the legend
-	// legend.append('text')
-  // 			.attr('x', properties.width + 30)
-  // 			.attr('y', -65)
-  // 			.attr('dy', '.35em')
-  // 			.style('text-anchor', 'end')
-  // 			.text(function(d){ return d; });
+    // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - properties.left)
+      .attr("x",0 - (properties.height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Forest area (% of land area)");
   //
   // // add y-label
   // svg.append('text')
@@ -180,13 +164,13 @@ function updateBar(data, year){
   var barPadding = 45;
   var top = 20;
   var right = 50;
-  var bottom = 100;
-  var left = 120;
+  var bottom = 50;
+  var left = 50;
 
   // set barchart svg properties
   var properties = {
-    width: 1000 - left - right,
-    height: 500 - top - bottom,
+    width: 1400 - left - right,
+    height: 300 - top - bottom,
     padding: 18,
     left: left,
     right: right,

@@ -113,3 +113,10 @@ weer te geven. Dit werkt ook samen met de compare functie.
 Verder ook een text label toegevoegd in de lijngrafiek waarin wordt staat welk
 land in de lijngrafiek wordt weergegeven. Ik moet nog fixen dat dit verdwijnt
 als de compare functie wordt aangezet
+
+# day 14
+Vandaag was de hackaton maar heb toch nog even wat gedaan. Het is me gelukt om
+mijn grafieken mee te laten zoemen als een gebruiker zijn webpagina verkleind/
+vergroot. Verder verplaatsen ze nu onder elkaar als het scherm te klein is. Dit
+eerste heb ik gedaan door de width en height in een viewbox te zetten en dat laatste
+met gebruik van de bootstrap grid.

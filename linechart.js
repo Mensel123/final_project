@@ -1,7 +1,20 @@
+var format = d3.format(",");
+
+// Set tooltips
+var tip_2 = d3.tip()
+            .attr('class', 'd3-tip')
+            .offset([-10, 0])
+            .html(function(d) {
+              // console.log("----");
+              // console.log(d);
+              return "<strong>Country: </strong><span class='details'>" + d[0] + "<br></span>" + "<strong>Year: </strong><span class='details'>" + (d[1]) +"</span>";
+            })
+
+
 function linechart(data){
   data_list = []
 
-  var barPadding = 45;
+  var barPadding = 0;
   var top = 20;
   var right = 50;
   var bottom = 50;
@@ -22,14 +35,16 @@ function linechart(data){
   // create svg
   var svg = d3.select("#area2").append("svg")
               .attr("class", "linechart")
-              .attr("width", properties.width +
-                    properties.left + properties.right)
-              .attr("height", properties.height +
-                    properties.top + properties.bottom)
+              .attr("viewBox", [0, 0, (properties.width + properties.right + properties.left),
+                                  (properties.height + properties.top + properties.bottom)].join(' '))
+              // .attr("width", properties.width +
+              //       properties.left + properties.right)
+              // .attr("height", properties.height +
+              //       properties.top + properties.bottom)
               .append("g")
               .attr("transform", "translate(" + properties.left +
                     "," + properties.top + ")");
-
+  svg.call(tip_2);
   var temp_list_1 = []
   data[0][4].Years.forEach(function(element){
     temp_list_1.push(element.year)
@@ -70,6 +85,22 @@ function linechart(data){
      .attr("class", "y_axis")
      .call(yAxis)
 
+  svg.append("text")
+      .attr("transform",
+            "translate(" + (properties.width/2) + " ," +
+                           (properties.height + properties.top + 20) + ")")
+    .style("text-anchor", "middle")
+    .text("Years");
+
+    // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - properties.left)
+      .attr("x",0 - (properties.height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Forest area (% of land area)");
+
   var line = d3.line()
                .x(function(d) {return xScale(new Date(d.year)); }) // set the x values for the line generator
                .y(function(d) { return yScale(d.value); }) // set the y values for the line generator
@@ -85,6 +116,7 @@ function linechart(data){
                      .attr("id", data[0][4]["Country Name"].split(' ').join(''))
                      .attr("d", line) // 11. Calls the line generator
 
+
   svg.select(".lines").append('g')
        .attr("class", "circle-group")
        .selectAll(".dot")
@@ -96,24 +128,28 @@ function linechart(data){
             return xScale(new Date(d.year)) })
            .attr("cy", function(d) { return yScale(d.value) })
            .attr("r", 5)
-           .on("mouseover", function(a, b, c) {
+           .on("mouseover", function(d) {
              d3.select(this)
              .style("fill", "#000000")
+             tip_2.show([this['id'],d.year])
            })
-          .on("mouseout", function() {
-            d3.select(this)
-            .style("fill", "#ffab00")
-          })
+           .on("mouseout", function() {
+              d3.select(this)
+              .style("fill", "#ffab00")
+              tip_2.hide()
+           })
+
   svg.append('text')
   .style("opacity", 0.4)
   .attr("class", "error_message")
   .attr('x', "40%")
   .attr('y', "40%")
   .attr('text-anchor', 'middle')
+  .attr("z-index", -1)
   .text(data[0][4]["Country Name"])
 }
 function updateLineGraph(data){
-  var barPadding = 45;
+  var barPadding = 0;
   var top = 20;
   var right = 50;
   var bottom = 50;
@@ -222,6 +258,7 @@ function updateLineGraph(data){
                         .selectAll(("#" + data_list[i]["Country Name"]).split(' ').join(''))
                         .data(data_list[i].Years)
 
+
         circles.enter().append("circle")
                .attr("id", data_list[i]["Country Name"].split(' ').join(''))
                .transition()
@@ -232,34 +269,53 @@ function updateLineGraph(data){
                .attr("cy", function(d) { return yScale(d.value) })
                .attr("r", 5)
 
-
-
         circles.transition()
                .duration(1000)
                .attr("cx", function(d) { return xScale(new Date(d.year)) })
                .attr("cy", function(d) { return yScale(d.value) })
 
-
-      }
       d3.selectAll("circle")
         .on("mouseover", function(a, b, c) {
           d3.select(this)
-            .style("fill", "#000000")
+          .style("fill", "#000000")
+          d3.selectAll(".line")
+            .style("opacity", 0.3)
+          d3.selectAll(".dot")
+            .style("opacity", 0.3)
+          d3.selectAll("#" + this["id"])
+            .style("opacity", 1)
+          tip_2.show([this['id'],a.year])
         })
         .on("mouseout", function() {
           d3.select(this)
-            .style("fill", "#ffab00")
+          .style("fill", "#ffab00")
+          d3.selectAll(".line")
+            .style("opacity", 1)
+          d3.selectAll(".dot")
+            .style("opacity", 1)
+          tip_2.hide()
          })
-        .on("click", function(d){
-          country = this.id
-          data_list.forEach(function(d, index, object){
-            if(d["Country Name"].split(' ').join('') === country){
-              object.splice(index, 1);
-              d3.selectAll("#"+country)
-                .remove()
-            }
-          })
+      d3.select(".line-group").selectAll("path")
+        .on("mouseover", function(d){
+          d3.selectAll(".line")
+            .style("opacity", 0.3)
+          d3.selectAll(".dot")
+            .style("opacity", 0.3)
+          d3.selectAll("#" + this["id"])
+            .style("opacity", 1)
         })
+        .on("mouseout", function(d){
+          d3.selectAll(".line")
+            .style("opacity", 1)
+          d3.selectAll(".dot")
+            .style("opacity", 1)
+        })
+      }
+
+    d3.select(".error_message")
+      .transition()
+        .duration(300)
+        .style("opacity", 0)
 
     }
   }

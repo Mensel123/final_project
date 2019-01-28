@@ -16,14 +16,14 @@ function linechart(data){
 
   var barPadding = 0;
   var top = 20;
-  var right = 50;
+  var right = 10;
   var bottom = 50;
-  var left = 50;
+  var left = 85;
 
   // set barchart svg properties
   var properties = {
     width: 700 - left - right,
-    height: 600 - top - bottom,
+    height: 500 - top - bottom,
     padding: 0,
     left: left,
     right: right,
@@ -75,7 +75,14 @@ function linechart(data){
   var xAxis = d3.axisBottom(xScale)
                 .ticks(Object.keys(data[0][4].Years).length/2)
   var yAxis = d3.axisLeft(yScale)
-
+  svg.append('text')
+  .style("opacity", 0.4)
+  .attr("class", "error_message")
+  .attr('x', "40%")
+  .attr('y', "40%")
+  .attr('text-anchor', 'middle')
+  .attr("z-index", -1)
+  .text(data[0][4]["Country Name"])
   svg.append("g")
      .attr("class", "x_axis")
      .attr("transform", `translate(0, ${properties.height})`)
@@ -95,7 +102,7 @@ function linechart(data){
     // text label for the y axis
   svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - properties.left)
+      .attr("y", -5 - properties.left)
       .attr("x",0 - (properties.height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
@@ -135,30 +142,24 @@ function linechart(data){
            })
            .on("mouseout", function() {
               d3.select(this)
-              .style("fill", "#ffab00")
+              .style("fill", "#1f7a1f")
               tip_2.hide()
            })
 
-  svg.append('text')
-  .style("opacity", 0.4)
-  .attr("class", "error_message")
-  .attr('x', "40%")
-  .attr('y', "40%")
-  .attr('text-anchor', 'middle')
-  .attr("z-index", -1)
-  .text(data[0][4]["Country Name"])
+
 }
 function updateLineGraph(data){
   console.log("hoi");
+
   var barPadding = 0;
   var top = 20;
-  var right = 50;
+  var right = 10;
   var bottom = 50;
-  var left = 50;
+  var left = 85;
 
   // set barchart svg properties
   var properties = {
-    width: 600 - left - right,
+    width: 700 - left - right,
     height: 500 - top - bottom,
     padding: 0,
     left: left,
@@ -289,7 +290,7 @@ function updateLineGraph(data){
         })
         .on("mouseout", function() {
           d3.select(this)
-          .style("fill", "#ffab00")
+          .style("fill", "#1f7a1f")
           d3.selectAll(".line")
             .style("opacity", 1)
           d3.selectAll(".dot")

@@ -133,6 +133,9 @@ function slider(data){
 
   // add 'p' element to show the current year of the slidebar
   d3.select(".slidecontainer").append("p")
+                  .attr("class", "showYear")
+                  .style("display", "inline-block")
+
                   .text("Year:")
                   .append("span")
                     .attr("id", "demo")

@@ -16,6 +16,10 @@ function barchart(data, tip){
     top: top,
     bottom: bottom,
   }
+  var color = d3.scaleThreshold()
+      .domain([0,10,20,30,40,50,60,70,80,90,100])
+      .range(["#ebfaeb", "#d6f5d6", "#adebad", "#85e085", "#5cd65c",
+              "#33cc33","#29a329","#1f7a1f","#145214","#0a290a", "#051405"]);
   // create svg
   var svg = d3.select("#area3")
               .append("svg")
@@ -78,6 +82,7 @@ function barchart(data, tip){
                return(properties.height - yScale(d.Years[0].value))
              })
              .attr("width", properties.width/data[0].length)
+             .style("fill", function(d) { return color(d.Years[0].value);})
              .style('fill', "#00000")
 
              // show tip when mouse hovers over bar
@@ -177,6 +182,14 @@ function updateBar(data, year){
     top: top,
     bottom: bottom,
   }
+    var color = d3.scaleThreshold()
+                  .domain([0,10,20,30,40,50,60,70,80,90,100])
+                  .range(["#ebfaeb", "#d6f5d6", "#adebad", "#85e085", "#5cd65c",
+                   "#33cc33","#29a329","#1f7a1f","#145214","#0a290a", "#051405"]);
+
+    // d3.select(".countries").selectAll("path")
+    //                        .transition(100)
+
   var yScale = d3.scaleLinear()
                  .domain([0,100])
                  .range([properties.height,0]);
@@ -205,4 +218,15 @@ function updateBar(data, year){
       })
        return new_height
       })
+    .style("fill", function(d) {
+     // console.log(color(year));
+     var new_color
+     d.Years.forEach(function(element){
+       if(element.year === year){
+
+        new_color =  color(element.value);
+       }
+     })
+     return new_color
+    })
 }

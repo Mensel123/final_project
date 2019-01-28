@@ -42,7 +42,7 @@ $(document).ready(function(){
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
-        scrollTop: $(hash).offset().top - 47
+        scrollTop: $(hash).offset().top - 55
       }, 800, function(){
 
         // Add hash (#) to URL when done scrolling (default click behavior)
@@ -54,9 +54,15 @@ $(document).ready(function(){
 </script>
 
 
+
   </head>
 	<body data-spy="scroll" data-target=".navbar" data-offset="50">
-		<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light" data-spy="affix" data-offset-top="197">
+		<!-- <div class="header"> -->
+
+
+
+
+		<nav id="navbar" class="navbar sticky-top navbar-expand-md navbar-light bg-light" >
     <!-- <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197"> -->
 			<a class="navbar-brand" href="final.html">Forest Growth</a>
 
@@ -76,25 +82,85 @@ $(document).ready(function(){
 				</li>
 			</ul>
 
-			</div>
+
 		</nav>
+
+		<!-- </div> -->
 		<div class="container-fluid">
     <div class="row" id="row_0" style="height: 100vh;">
+
 			<section id="section07" class="demo">
+				<h2 class="title">Forest Awereness</h2>
 
 			  <!-- <h1>Scroll Down Button #7</h1> -->
 			  <a href="#row_1"><span></span><span></span><span></span></a>
 			</section>
 			<!-- <img src="forest.jpg" alt="" style="height: 100vh;"> -->
     </div>
-    <div class="row" id="row_1" style="height: 100vh;">
+		<!-- <div class="hiding"> -->
 
-      Hier komt een verhaal
+		<!-- <div class="row justify-content-center"> -->
+
+    <div class="row justify-content-around m-5" id="row_1" style="height: 100vh;">
+
+     <div class="col-md-5" id="infoColumn">
+      	<div class="row mt-4">
+					<h3>Problem</h3>
+      		From 2001 to 2015 3 million square kilometers of forest was lost.
+					The loss of forest has an impact on the habitat of millions of species
+					of which many cannot survive without the forest. Furthermore trees are
+					a vital part of the ecosystem. They prevent desertification by moistering
+					their soil and give shade that prevents extreme temperatures on the ground.
+					Trees also play a crucial role in preventing global warming by absorbing
+					greenhouse gases.
+https://www.nationalgeographic.com/environment/global-warming/deforestation/
+
+      	</div>
+				<div class="row mt-5">
+					<h3>Causes</h3>
+					Deforistation has several causes of which some are caused by nature
+					itself, but mostly humans are responsible for the loss of forest. 27%
+					of the total loss of trees is permanent and was caused by land that
+					was converted to agricultural ground. This ground is used to grow soy,
+					timber, beef and palm oil.
+					The causes of deforestation is different per country and continent.
+					In South America tree loss was mostly commodity-driven. Here they cut
+					trees to create products like soy and palm oil. In Africa the main
+					reason for deforestation is subsistence farming. This means people are
+					cutting down trees to create agricultural land to feed their own family.
+					But a global cause of deforestation is the cutting of trees to sell them as timber.
+https://www.sciencenews.org/article/new-map-reveals-causes-forest-loss-worldwide
+
+
+				</div>
+				<div class="row mt-5">
+					<h3>Solution</h3>
+					It is vital for the survival of all kind of species including ourselves
+					that we stop deforestation. One solution is to motivate large companies
+					to clean up their supply chain and improve their policies.
+					These policies will have to be governed by governments that
+					themselves have to set better climate goals.
+
+
+				</div>
     </div>
+		 <div class="col-md-5" id="infoColumn">
+	      	<div class="row">
+						<img src="10094847976_55ba5907cd_o.jpg" class="images">
+
+	      	</div>
+					<div class="row mt-2">
+						<img src="An_example_of_slash_and_burn_agriculture_practice_Thailand.jpg" class="images">
+					</div>
+		 </div>
+    </div>
+
 		<div class="row" id="row_2" style="height: 100vh;">
-      <div class="col-md-12" style="height: 100vh;">
+      <div class="col-md-12">
 
 				<div class="row" id="row_2_0_1" style="height: 7%;">
+
+    			<div class="col-md-6" id="sliderBar"></div>
     			<div class="col-md-4" id="searchCountry">
 								<span class="navbar-text">Search Country:</span>
 								<form autocomplete="off" class="navbar-text">
@@ -103,31 +169,99 @@ $(document).ready(function(){
 									</div>
 								</form>
 					</div>
-    			<div class="col-md-6" id="sliderBar"></div>
 					<div class="col-md-2" id="compareCountry"></div>
 				</div>
 
 
-	      <div class="row" id="row_2.1" style="height: 45%;">
-	        			<div class="col-md-8" id="area1"></div>
-	        			<div class="col-md-4" id="area2">
-	                <div class="row" id="row_2_1_1">
+	      <div class="row" id="row_2.1" style="height: 50%;">
+	        			<div class="col-md-7" id="area1"></div>
+	        			<div class="col-md-5" id="area2">
+	                <!-- <div class="row" id="row_2_1_1">
 
-	                </div>
+	                </div> -->
 	              </div>
 	      </div>
-	      <div class="row" id="row_2.2" style="height: 45%;">
+	      <div class="row" id="row_2.2" style="height: 40%;">
 	        <div class="col-md-12" id="area3"></div>
       	</div>
 				</div>
 		</div>
-    <div class="row" id="row_3" style="height: 100vh;">
+    <div class="row justify-content-around m-5" id="row_3" style="height: 100vh;">
+		 <div class="col-md-5" id="infoColumn">
+			 <div class="row mt-5">
+<p class="infoColumn">Hey, my name is Mendel and I created this website for the
+minor Programming at the University of Amsterdam. Interested in more of my work
+or do you have a question? Send me your email adress and name and I will get in touch
+with you.</p>
+<p class="infoColumn">Contact Me:</p>
+<form action="https://formspree.io/mendelengelaer@hotmail.com" method="POST">
+  <input type="text" name="name" placeholder="Name">
+  <input type="email" name="_replyto" placeholder="Email Address">
+  <input type="submit" value="Send">
+</form>
 
-      Hier komen mijn contactgegevens
+	      	</div>
+		 </div>
     </div>
     <!-- <div class="row" id="row_4" style="height: 100vh;">
       Hier komen mijn contactgegevens
     </div> -->
+<!-- <script type="text/javascript">
+var stickyNavTop = $('#navbar').offset().top;
 
+    function scrolling() {
+        doc = $(document).height()
+        hidingtop = $('#row_0').offset().top;
+        hidingbottom = $('#row_0').position().top + $('#row_1').outerHeight(true)
+        if ($(window).scrollTop() > hidingtop && $(window).scrollTop() < hidingbottom) {
+            $('#navbar').removeClass('sticky');
+            $('#row_1').css('padding-top', '0');
+        }
+    }
+
+var stickyNav = function () {
+    var scrollTop = $(window).scrollTop();
+
+    if (scrollTop > stickyNavTop) {
+        $('#navbar').addClass('sticky');
+        $('#row_1').css('padding-top', '100px');
+    } else {
+        $('#navbar').removeClass('sticky');
+        $('#row_1').css('padding-top', '0');
+    }
+};
+
+stickyNav();
+
+$(window).scroll(function () {
+    stickyNav();
+
+    scrolling()
+});
+</script> -->
+<script type="text/javascript">
+(function ($) {
+  $(document).ready(function(){
+
+    // hide .navbar first
+    $("#navbar").hide();
+
+    // fade in .navbar
+    $(function () {
+        $(window).scroll(function () {
+
+                 // set distance user needs to scroll before we start fadeIn
+            if ($(this).scrollTop() > 700) {
+                $('#navbar').fadeIn(200);
+            } else {
+                $('#navbar').fadeOut(200);
+            }
+        });
+    });
+
+});
+  }(jQuery));
+
+</script>
 	</body>
 </html>

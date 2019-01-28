@@ -1,7 +1,7 @@
 function map(data, tip) {
   var margin = {top: 0, right: 0, bottom: 0, left: 0},
-              width = 960 - margin.left - margin.right,
-              height = 400 - margin.top - margin.bottom;
+              width = 850 - margin.left - margin.right,
+              height = 500 - margin.top - margin.bottom;
 
   // scale green to amount of trees, but how?
   var color = d3.scaleThreshold()

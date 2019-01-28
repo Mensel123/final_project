@@ -1,27 +1,70 @@
-/* .map{
-  height: 100%;
+
+
+* {
+    margin:0;
+    padding:0;
+}
+img{
   width: 100%;
-} */
-/* #navbar {
-    position: -webkit-sticky;
-    position: fixed;
-    top: 0;
-    z-index: 1020;
-} */
+  height: 100%;
+}
 
-  .affix {
-    top:0;
-    width: 100%;
-    z-index: 9999 !important;
-  }
-  .navbar {
-    margin-bottom: 0px;
-  }
+#infoColumn{
+  /* background-color: #f2f2f2; */
+  /* padding-top: 100px; */
+  font-family: sans-serif;
+}
 
-  .affix ~ .container-fluid {
-   position: relative;
-   top: 50px;
-  }
+.form-check-label{
+  position: relative;
+  top: 3px;
+}
+
+.navbar-text{
+  position: relative;
+  top: -16px;
+}
+.showYear{
+  position: relative;
+  top: -6px;
+  left: 10px;
+}
+
+.title{
+  font-size: 100px;
+  text-align: center;
+  padding-top: 200px;
+    font-family: helvetica, sans-serif;
+  color: #e6e6e6;
+  opacity: 0.6;
+
+}
+
+#row_0{
+  padding-top: 100;
+}
+
+
+.linechart {
+  font-size: 19px;
+}
+.linechart .tick{
+  font-size: 15px;
+}
+
+.affix {
+  top:0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+
+.affix ~ .container-fluid {
+ position: relative;
+ top: 50px;
+}
 
 body {
   /* background-color: #F8F8F8; */
@@ -280,7 +323,7 @@ pointer-events: none;
 
 .line {
     fill: none;
-    stroke: #ffab00;
+    stroke: #1f7a1f;
     stroke-width: 3;
 }
 
@@ -291,7 +334,7 @@ pointer-events: none;
 
 /* Style the dots by assigning a fill and stroke */
 .dot {
-    fill: #ffab00;
+    fill: #1f7a1f;
     stroke: #fff;
 }
 

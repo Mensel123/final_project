@@ -127,3 +127,12 @@ weekend wel het smooth scrollen over mijn pagina gefixed. Verder ook een mooi
 plaatje met een scroll button toegevoegd aan mijn hoofdpagina. Heb toch besloten
 alle functie knoppen als compare en de slider in een row te zetten boven mijn
 grafieken zodat alle opties overzichtelijk zijn.
+
+# day 15
+Vandaag kleuren aangepast van mijn grafieken. De bars in mijn barchart hebben nu
+het zelfde kleurenschema als de map en deze passen zich ook aan als je aan de
+slider schuift. Verder alles uitgelijnd op de data pagina. Het is al enigszins gelukt
+om de navbar pas op de tweede pagina te laten zien maar dit moet nog iets soepeler.
+Verder ook mijn story pagina bijgewerkt met verhaal en foto's. Vandaag ook
+de contact pagina gemaakt waarbij mensen mij hun email en naam kunnen sturen via
+formspree en dan kan ik contact met hen opnemen. 

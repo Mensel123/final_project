@@ -28,7 +28,7 @@ window.onload = function() {
 
   function checkbox(data){
 
-    d3.select("#area2").select("#row_1")
+    d3.select("#compareCountry")
       .attr("class", "form-check")
 
       .append("input")

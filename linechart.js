@@ -22,8 +22,8 @@ function linechart(data){
 
   // set barchart svg properties
   var properties = {
-    width: 600 - left - right,
-    height: 500 - top - bottom,
+    width: 700 - left - right,
+    height: 600 - top - bottom,
     padding: 0,
     left: left,
     right: right,
@@ -149,6 +149,7 @@ function linechart(data){
   .text(data[0][4]["Country Name"])
 }
 function updateLineGraph(data){
+  console.log("hoi");
   var barPadding = 0;
   var top = 20;
   var right = 50;
@@ -211,7 +212,7 @@ function updateLineGraph(data){
         lines_list.push(d.Years)
       })
 
-      let lines = d3.selectAll(".line-group").selectAll("path").data(lines_list)
+      let lines = d3.select(".line-group").selectAll("path").data(lines_list)
       var n = 0;
       lines.enter().append("path")
            .transition()

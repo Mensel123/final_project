@@ -120,3 +120,10 @@ mijn grafieken mee te laten zoemen als een gebruiker zijn webpagina verkleind/
 vergroot. Verder verplaatsen ze nu onder elkaar als het scherm te klein is. Dit
 eerste heb ik gedaan door de width en height in een viewbox te zetten en dat laatste
 met gebruik van de bootstrap grid.
+
+# day weekend
+Veel ziek geweest afgelopen dagen dus process is een beetje traag. Maar in het
+weekend wel het smooth scrollen over mijn pagina gefixed. Verder ook een mooi
+plaatje met een scroll button toegevoegd aan mijn hoofdpagina. Heb toch besloten
+alle functie knoppen als compare en de slider in een row te zetten boven mijn
+grafieken zodat alle opties overzichtelijk zijn.

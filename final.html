@@ -16,72 +16,118 @@
 		<script type="text/javascript" src="helpers.js" charset="utf-8"></script>
 		<script type="text/javascript" src="linechart.js" charset="utf-8"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 		<!-- <script type="text/javascript" src="barchart.js"></script> -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<nav id="slider" class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top - 47
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+
+  </head>
+	<body data-spy="scroll" data-target=".navbar" data-offset="50">
+		<nav id="navbar" class="navbar sticky-top navbar-expand-lg navbar-light bg-light" data-spy="affix" data-offset-top="197">
+    <!-- <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197"> -->
 			<a class="navbar-brand" href="final.html">Forest Growth</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-			</button>
+
 			<!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="final.html">Home <span class="sr-only">(current)</span></a>
+				<li class="nav-item">
+					<a class="nav-link" href="#row_0">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="story.html">Story</a>
+					<a class="nav-link" href="#row_1">Story</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="sources.html">Sources</a>
+					<a class="nav-link" href="#row_2_0_1">Data</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="contact.html">Contact</a>
+					<a class="nav-link" href="#row_3">Contact</a>
 				</li>
 			</ul>
-			<span class="navbar-text">Country:</span>
-			<form autocomplete="off" class="navbar-text">
-				<div class="autocomplete" style="width:200px;">
-					<input id="myInput" type="text" name="myCountry" placeholder="Country">
-				</div>
-			</form>
-			<!-- <li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				  Dropdown
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				  <a class="dropdown-item" href="#">Action</a>
-				  <a class="dropdown-item" href="#">Another action</a>
-				  <div class="dropdown-divider"></div>
-				  <a class="dropdown-item" href="#">Something else here</a>
-				</div>
-				</li>
-				<li class="nav-item">
-				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-				</li> -->
-			<!-- <nav class="navbar  navbar-light bg-light">
-				<a class="navbar-brand" href="#">Sticky top</a>
-				</nav> -->
-			<!-- <form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form> -->
+
 			</div>
 		</nav>
 		<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-8" id="area1"></div>
+    <div class="row" id="row_0" style="height: 100vh;">
+			<section id="section07" class="demo">
 
-			<div class="col-md-4" id="area2">
-				<div class="row" id="row_1"></div>
-				<!-- <div class="row" id="row_2"></div> -->
-			</div>
+			  <!-- <h1>Scroll Down Button #7</h1> -->
+			  <a href="#row_1"><span></span><span></span><span></span></a>
+			</section>
+			<!-- <img src="forest.jpg" alt="" style="height: 100vh;"> -->
+    </div>
+    <div class="row" id="row_1" style="height: 100vh;">
+
+      Hier komt een verhaal
+    </div>
+		<div class="row" id="row_2" style="height: 100vh;">
+      <div class="col-md-12" style="height: 100vh;">
+
+				<div class="row" id="row_2_0_1" style="height: 7%;">
+    			<div class="col-md-4" id="searchCountry">
+								<span class="navbar-text">Search Country:</span>
+								<form autocomplete="off" class="navbar-text">
+									<div class="autocomplete" style="width:200px;">
+										<input id="myInput" type="text" name="myCountry" placeholder="Country">
+									</div>
+								</form>
+					</div>
+    			<div class="col-md-6" id="sliderBar"></div>
+					<div class="col-md-2" id="compareCountry"></div>
+				</div>
+
+
+	      <div class="row" id="row_2.1" style="height: 45%;">
+	        			<div class="col-md-8" id="area1"></div>
+	        			<div class="col-md-4" id="area2">
+	                <div class="row" id="row_2_1_1">
+
+	                </div>
+	              </div>
+	      </div>
+	      <div class="row" id="row_2.2" style="height: 45%;">
+	        <div class="col-md-12" id="area3"></div>
+      	</div>
+				</div>
 		</div>
+    <div class="row" id="row_3" style="height: 100vh;">
+
+      Hier komen mijn contactgegevens
+    </div>
+    <!-- <div class="row" id="row_4" style="height: 100vh;">
+      Hier komen mijn contactgegevens
+    </div> -->
+
 	</body>
 </html>

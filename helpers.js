@@ -121,7 +121,7 @@ function getCountry(input){
 
 function slider(data){
     // add slidebar
-  d3.select("#slider").append("div")
+  d3.select("#sliderBar").append("div")
     .attr("class", "slidecontainer")
     .append("input")
       .attr("type", "range")

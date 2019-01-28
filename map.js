@@ -99,13 +99,14 @@ function map(data, tip) {
                   .style("opacity", 1)
                   .style('fill', "#000000")
                   .style("stroke","white")
-                  .style("stroke-width",0.3);
+                  .style("stroke-width",0);
                   return true
               }
               else return false;
             });
         })
         .on('click', function(d){
+            // console.log(d);
                 updateLineGraph(d)
                 // d3.selectAll('path').on('click', null)
                 // d3.selectAll('path').on('click', )

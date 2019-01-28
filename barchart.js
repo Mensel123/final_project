@@ -17,7 +17,7 @@ function barchart(data, tip){
     bottom: bottom,
   }
   // create svg
-  var svg = d3.select("body")
+  var svg = d3.select("#area3")
               .append("svg")
               .attr("class", "barchart")
               .attr("viewBox", [0, 0, (properties.width + properties.right + properties.left),

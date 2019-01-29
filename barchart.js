@@ -144,26 +144,6 @@ function barchart(data, tip){
       .attr("dy", "1em")
       .style("text-anchor", "middle")
       .text("Forest area (% of land area)");
-  //
-  // // add y-label
-  // svg.append('text')
-  //    .attr("class", "yLabel")
-  //    .attr('x', -200)
-  //    .attr('y', -40)
-  //    .attr('transform', 'rotate(-90)')
-  //    .attr('text-anchor', 'middle')
-  //    .text("Years")
-  //
-  // // add error message when no data is available
-  // svg.append('text')
-  //   .style("opacity", 0)
-  //   .attr("class", "error_message")
-  //   .attr('x', 200)
-  //   .attr('y', 150)
-  //   .attr('text-anchor', 'middle')
-  //   .text("No Data Available")
-
-
 }
 function updateBar(data, year){
   var barPadding = 45;

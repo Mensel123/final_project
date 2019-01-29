@@ -1,7 +1,7 @@
 function map(data, tip) {
-  var margin = {top: 0, right: 0, bottom: 0, left: 0},
+  var margin = {top: 0, right: 0, bottom: 50, left: 0},
               width = 850 - margin.left - margin.right,
-              height = 500 - margin.top - margin.bottom;
+              height = 450 - margin.top - margin.bottom;
 
   // scale green to amount of trees, but how?
   var color = d3.scaleThreshold()
@@ -111,34 +111,6 @@ function map(data, tip) {
                 // d3.selectAll('path').on('click', null)
                 // d3.selectAll('path').on('click', )
               })
-        // .on('click', function(d){
-        //         updateLineGraph(d)
-        //         // d3.selectAll('path').on('click', null)
-
-
-        // })
-        // d3.selectAll('path').on('click', [])
-       // .each(function() { // I believe you could do this with .on('start', cb) but I haven't tested it
-       //     n++;
-       // })
-       // .transition()
-       // .on('end', function() { // use to be .each('end', function(){})
-       //     n--;
-       //     if (!n) {
-       //         console.log("einde");
-       //     }
-       // })
-        // .on("click", function(d) {
-        //   updateLineGraph(d);
-        //   noClick();
-        // });
-        // // .on("start", console.log("start"))
-        //
-        // function noClick(){
-        //   d3.event.preventDefault();
-        // }
-
-
 
 
 

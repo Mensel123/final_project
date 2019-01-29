@@ -16,15 +16,15 @@ window.onload = function() {
     // if all requests are fulfilled, run code inside function
     Promise.all(requests).then(function(response) {
       globalData = response
-      barchart(response, tip)
-
-
 
       checkbox(response)
       linechart(response)
       slider(response)
       createCountryList(response)
-      map(response, tip);
+      barchart(response, tip)
+      map(response, tip)
+
+
 
     }).catch(function(e){
         throw(e);

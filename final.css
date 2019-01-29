@@ -1,4 +1,9 @@
-
+.map{
+  z-index: inherit;
+}
+.barchart{
+  z-index: -1000;
+}
 
 #contactForm{
   font-family: sans-serif;

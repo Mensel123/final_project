@@ -3,6 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" href="final.css">
 		<script src="https://d3js.org/d3.v5.min.js" ></script>
@@ -42,7 +43,7 @@ $(document).ready(function(){
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
-        scrollTop: $(hash).offset().top - 55
+        scrollTop: $(hash).offset().top - 50
       }, 800, function(){
 
         // Add hash (#) to URL when done scrolling (default click behavior)
@@ -154,7 +155,7 @@ https://www.sciencenews.org/article/new-map-reveals-causes-forest-loss-worldwide
 					</div>
 		 </div>
     </div>
-
+		<hr>
 		<div class="row" id="row_2" style="height: 100vh;">
       <div class="col-md-12">
 
@@ -186,6 +187,7 @@ https://www.sciencenews.org/article/new-map-reveals-causes-forest-loss-worldwide
       	</div>
 				</div>
 		</div>
+		<hr>
     <div class="row justify-content-around m-5" id="row_3" style="height: 100vh;">
 		 <div class="col-md-5" id="infoColumn">
 			 <div class="row mt-5">
@@ -239,29 +241,5 @@ $(window).scroll(function () {
     scrolling()
 });
 </script> -->
-<script type="text/javascript">
-(function ($) {
-  $(document).ready(function(){
-
-    // hide .navbar first
-    $("#navbar").hide();
-
-    // fade in .navbar
-    $(function () {
-        $(window).scroll(function () {
-
-                 // set distance user needs to scroll before we start fadeIn
-            if ($(this).scrollTop() > 700) {
-                $('#navbar').fadeIn(200);
-            } else {
-                $('#navbar').fadeOut(200);
-            }
-        });
-    });
-
-});
-  }(jQuery));
-
-</script>
 	</body>
 </html>

@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 		<link rel="stylesheet" href="final.css">
 		<script src="https://d3js.org/d3.v5.min.js" ></script>
@@ -17,56 +17,46 @@
 		<script type="text/javascript" src="helpers.js" charset="utf-8"></script>
 		<script type="text/javascript" src="linechart.js" charset="utf-8"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 		<!-- <script type="text/javascript" src="barchart.js"></script> -->
 		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+		<script>
+			$(document).ready(function(){
+			  // Add smooth scrolling to all links
+			  $("a").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+			    // Make sure this.hash has a value before overriding default behavior
+			    if (this.hash !== "") {
+			      // Prevent default anchor click behavior
+			      event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
+			      // Store hash
+			      var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top - 50
-      }, 800, function(){
+			      // Using jQuery's animate() method to add smooth page scroll
+			      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+			      $('html, body').animate({
+			        scrollTop: $(hash).offset().top - 50
+			      }, 800, function(){
 
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
-</script>
-
-
-
-  </head>
+			        // Add hash (#) to URL when done scrolling (default click behavior)
+			        window.location.hash = hash;
+			      });
+			    } // End if
+			  });
+			});
+		</script>
+	</head>
 	<body data-spy="scroll" data-target=".navbar" data-offset="50">
 		<!-- <div class="header"> -->
-
-
-
-
 		<nav id="navbar" class="navbar sticky-top navbar-expand-md navbar-light bg-light" >
-    <!-- <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197"> -->
-			<a class="navbar-brand" href="final.html">Forest Growth</a>
-
+			<!-- <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197"> -->
+			<a class="navbar-brand" href="#row_0">Forest Growth</a>
 			<!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
@@ -82,41 +72,32 @@ $(document).ready(function(){
 					<a class="nav-link" href="#row_3">Contact</a>
 				</li>
 			</ul>
-
-
 		</nav>
-
 		<!-- </div> -->
 		<div class="container-fluid">
-    <div class="row" id="row_0" style="height: 100vh;">
-
+		<div class="row" id="row_0" style="height: 100vh;">
 			<section id="section07" class="demo">
-				<h2 class="title">Forest Awereness</h2>
-
-			  <!-- <h1>Scroll Down Button #7</h1> -->
-			  <a href="#row_1"><span></span><span></span><span></span></a>
+				<h2 class="title">Forest Growth Data</h2>
+				<!-- <h1>Scroll Down Button #7</h1> -->
+				<a href="#row_1"><span></span><span></span><span></span></a>
 			</section>
 			<!-- <img src="forest.jpg" alt="" style="height: 100vh;"> -->
-    </div>
+		</div>
 		<!-- <div class="hiding"> -->
-
 		<!-- <div class="row justify-content-center"> -->
-
-    <div class="row justify-content-around m-5" id="row_1" style="height: 100vh;">
-
-     <div class="col-md-5" id="infoColumn" style="height: 100vh;">
-      	<div class="row mt-4">
+		<div class="row justify-content-around m-5" id="row_1" style="height: 100%;">
+			<div class="col-md-5" id="infoColumn" style="height: 100%;">
+				<div class="row mt-4">
 					<h3>Problem</h3>
-      		From 2001 to 2015 3 million square kilometers of forest was lost.
+					From 2001 to 2015 3 million square kilometers of forest was lost.
 					The loss of forest has an impact on the habitat of millions of species
 					of which many cannot survive without the forest. Furthermore trees are
 					a vital part of the ecosystem. They prevent desertification by moistering
 					their soil and give shade that prevents extreme temperatures on the ground.
 					Trees also play a crucial role in preventing global warming by absorbing
 					greenhouse gases.
-https://www.nationalgeographic.com/environment/global-warming/deforestation/
-
-      	</div>
+					https://www.nationalgeographic.com/environment/global-warming/deforestation/
+				</div>
 				<div class="row mt-5">
 					<h3>Causes</h3>
 					Deforistation has several causes of which some are caused by nature
@@ -130,9 +111,7 @@ https://www.nationalgeographic.com/environment/global-warming/deforestation/
 					reason for deforestation is subsistence farming. This means people are
 					cutting down trees to create agricultural land to feed their own family.
 					But a global cause of deforestation is the cutting of trees to sell them as timber.
-https://www.sciencenews.org/article/new-map-reveals-causes-forest-loss-worldwide
-
-
+					https://www.sciencenews.org/article/new-map-reveals-causes-forest-loss-worldwide
 				</div>
 				<div class="row mt-5">
 					<h3>Solution</h3>
@@ -141,105 +120,94 @@ https://www.sciencenews.org/article/new-map-reveals-causes-forest-loss-worldwide
 					to clean up their supply chain and improve their policies.
 					These policies will have to be governed by governments that
 					themselves have to set better climate goals.
-
-
 				</div>
-    </div>
-		 <div class="col-md-5" id="infoColumn" style="height: 100vh;">
-	      	<div class="row">
-						<img src="10094847976_55ba5907cd_o.jpg" class="images">
-
-	      	</div>
-					<div class="row mt-2">
-						<img src="An_example_of_slash_and_burn_agriculture_practice_Thailand.jpg" class="images">
-					</div>
-		 </div>
-    </div>
+			</div>
+			<div class="col-md-5" id="infoColumn" style="height: 100%;">
+				<div class="row">
+					<img src="10094847976_55ba5907cd_o.jpg" class="images">
+				</div>
+				<div class="row mt-2">
+					<img src="An_example_of_slash_and_burn_agriculture_practice_Thailand.jpg" class="images">
+				</div>
+			</div>
+		</div>
 		<hr>
-		<div class="row" id="row_2" style="height: 100vh;">
-      <div class="col-md-12">
-
+		<div class="row" id="row_2" style="height: 100%;">
+			<div class="col-md-12">
 				<div class="row" id="row_2_0_1" style="height: 7%;">
-
-    			<div class="col-md-6" id="sliderBar"></div>
-    			<div class="col-md-4" id="searchCountry">
-								<span class="navbar-text">Search Country:</span>
-								<form autocomplete="off" class="navbar-text">
-									<div class="autocomplete" style="width:200px;">
-										<input id="myInput" type="text" name="myCountry" placeholder="Country">
-									</div>
-								</form>
+					<div class="col-md-6" id="sliderBar"></div>
+					<div class="col-md-4" id="searchCountry">
+						<span class="navbar-text">Search Country:</span>
+						<form autocomplete="off" class="navbar-text">
+							<div class="autocomplete" style="width:200px;">
+								<input id="myInput" type="text" name="myCountry" placeholder="Country">
+							</div>
+						</form>
 					</div>
 					<div class="col-md-2" id="compareCountry"></div>
 				</div>
-
-
-	      <div class="row" id="row_2.1" style="height: 50vh;">
-	        			<div class="col-md-7" id="area1"></div>
-	        			<div class="col-md-5" id="area2">
-	                <!-- <div class="row" id="row_2_1_1">
-
-	                </div> -->
-	              </div>
-	      </div>
-	      <div class="row" id="row_2.2" style="height: 40vh;">
-	        <div class="col-md-12" id="area3"></div>
-      	</div>
+				<div class="row" id="row_2.1" style="height: 50%;">
+					<div class="col-md-7" id="area1"></div>
+					<div class="col-md-5" id="area2"></div>
 				</div>
+				<div class="row" id="row_2.2" style="height: 40%;">
+					<div class="col-md-12" id="area3"></div>
+				</div>
+			</div>
 		</div>
 		<hr>
-    <div class="row justify-content-around m-5" id="row_3" style="height: 100vh;">
-		 <div class="col-md-5" id="infoColumn">
-			 <div class="row mt-5">
-<p class="infoColumn">Hey, my name is Mendel and I created this website for the
-minor Programming at the University of Amsterdam. Interested in more of my work
-or do you have a question? Send me your email adress and name and I will get in touch
-with you.</p>
-<p class="infoColumn">Contact Me:</p>
-<form action="https://formspree.io/mendelengelaer@hotmail.com" method="POST">
-  <input type="text" name="name" placeholder="Name">
-  <input type="email" name="_replyto" placeholder="Email Address">
-  <input type="submit" value="Send">
-</form>
+		<div class="row justify-content-around m-5" id="row_3" style="height: 80vh;">
+			<div class="col-md-5" id="contactForm">
+				<p>Hey, my name is Mendel and I created this website for the
+					minor Programming at the University of Amsterdam. Interested in more of my work
+					or do you have a question? Send me your email adress and name and I will get in touch
+					with you.
+				</p>
+			</div>
+			<div class="col-md-5" id="contactForm">
+				<p class="infoColumn">Contact Me:</p>
+				<form action="https://formspree.io/mendelengelaer@hotmail.com" method="POST">
+					<input type="text" name="name" placeholder="Name">
+					<input type="email" name="_replyto" placeholder="Email Address">
+					<input type="submit" value="Send">
+				</form>
+			</div>
+		</div>
+		<!-- <div class="row" id="row_4" style="height: 100vh;">
+			Hier komen mijn contactgegevens
+			</div> -->
+		<!-- <script type="text/javascript">
+			var stickyNavTop = $('#navbar').offset().top;
 
-	      	</div>
-		 </div>
-    </div>
-    <!-- <div class="row" id="row_4" style="height: 100vh;">
-      Hier komen mijn contactgegevens
-    </div> -->
-<!-- <script type="text/javascript">
-var stickyNavTop = $('#navbar').offset().top;
+			    function scrolling() {
+			        doc = $(document).height()
+			        hidingtop = $('#row_0').offset().top;
+			        hidingbottom = $('#row_0').position().top + $('#row_1').outerHeight(true)
+			        if ($(window).scrollTop() > hidingtop && $(window).scrollTop() < hidingbottom) {
+			            $('#navbar').removeClass('sticky');
+			            $('#row_1').css('padding-top', '0');
+			        }
+			    }
 
-    function scrolling() {
-        doc = $(document).height()
-        hidingtop = $('#row_0').offset().top;
-        hidingbottom = $('#row_0').position().top + $('#row_1').outerHeight(true)
-        if ($(window).scrollTop() > hidingtop && $(window).scrollTop() < hidingbottom) {
-            $('#navbar').removeClass('sticky');
-            $('#row_1').css('padding-top', '0');
-        }
-    }
+			var stickyNav = function () {
+			    var scrollTop = $(window).scrollTop();
 
-var stickyNav = function () {
-    var scrollTop = $(window).scrollTop();
+			    if (scrollTop > stickyNavTop) {
+			        $('#navbar').addClass('sticky');
+			        $('#row_1').css('padding-top', '100px');
+			    } else {
+			        $('#navbar').removeClass('sticky');
+			        $('#row_1').css('padding-top', '0');
+			    }
+			};
 
-    if (scrollTop > stickyNavTop) {
-        $('#navbar').addClass('sticky');
-        $('#row_1').css('padding-top', '100px');
-    } else {
-        $('#navbar').removeClass('sticky');
-        $('#row_1').css('padding-top', '0');
-    }
-};
+			stickyNav();
 
-stickyNav();
+			$(window).scroll(function () {
+			    stickyNav();
 
-$(window).scroll(function () {
-    stickyNav();
-
-    scrolling()
-});
-</script> -->
+			    scrolling()
+			});
+			</script> -->
 	</body>
 </html>

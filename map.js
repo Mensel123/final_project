@@ -73,8 +73,9 @@ function map(data, tip) {
               if ( d["Country Name"].split(' ').join('') == activeCountry) {
                 d3.select(this)
                   .style("opacity", 0.6)
-                  .style('fill', "#ff0000")
-                  .style("stroke","white")
+                  // .style('fill', "#ff0000")
+                  .style("stroke","FF0000")
+                  .style("strokeStyle", "FF0000")
                   .style("stroke-width",2);
                   return true
               }
@@ -97,8 +98,9 @@ function map(data, tip) {
               if ( d["Country Name"].split(' ').join('') == activeCountry) {
                 d3.select(this)
                   .style("opacity", 1)
-                  .style('fill', "#000000")
+                  // .style('fill', "#000000")
                   .style("stroke","white")
+                  // .style("strokeStyle", "ff0000")
                   .style("stroke-width",0);
                   return true
               }

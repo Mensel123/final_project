@@ -37,10 +37,6 @@ function linechart(data){
               .attr("class", "linechart")
               .attr("viewBox", [0, 0, (properties.width + properties.right + properties.left),
                                   (properties.height + properties.top + properties.bottom)].join(' '))
-              // .attr("width", properties.width +
-              //       properties.left + properties.right)
-              // .attr("height", properties.height +
-              //       properties.top + properties.bottom)
               .append("g")
               .attr("transform", "translate(" + properties.left +
                     "," + properties.top + ")");

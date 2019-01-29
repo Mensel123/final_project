@@ -100,8 +100,8 @@ function barchart(data, tip){
                   if ( d["Country Name"].split(' ').join('') == activeCountry) {
                     d3.select(this)
                       .style("opacity", 0.6)
-                      .style("stroke","white")
-                      .style("stroke-width",3);
+                      .style("stroke","ff0000")
+                      .style("stroke-width",2);
                       return true
                   }
                   else return false;

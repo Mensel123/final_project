@@ -16,7 +16,7 @@ https://www.nature.com/articles/nature14967.epdf?referrer_access_token=GHIjjPPky
 I have created an interactive website that visualizes the forest area change from 1990 up to 2015.
 
 ### Visualisation
-![alt text](final_project/doc/screenshots/contactPage.png)
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/screenshots/mainPage.png)
 
 ### Main features
 

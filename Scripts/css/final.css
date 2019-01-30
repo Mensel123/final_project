@@ -1,7 +1,6 @@
-/* .help-tip{
-
+ .help-tip{
     position: relative;
-    top: 30%;
+    top: -20px;
     left: 150px;
 
     text-align: center;
@@ -42,6 +41,7 @@
     color: #FFF;
     font-size: 13px;
     line-height: 1.4;
+    z-index: 100
 }
 
 .help-tip p:before{ /* The pointer of the tooltip */
@@ -62,7 +62,7 @@
     position: absolute;
     top:-40px;
     left:0;
-} */
+}
 
 /* CSS animation */
 

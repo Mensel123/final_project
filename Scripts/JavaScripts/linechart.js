@@ -394,12 +394,12 @@ function updateLineGraph(data){
     // update country name text in line
     d3.select(".countryName")
       .transition()
-        .duration(300)
-        .style("opacity", 0)
-        .delay(300)
-        .transition()
-        .duration(500)
-        .text(data["Country Name"])
-        .style("opacity", 0.4)
+      .duration(300)
+      .style("opacity", 0)
+      .delay(300)
+      .transition()
+      .duration(500)
+      .text(data["Country Name"])
+      .style("opacity", 0.4)
   }
 }

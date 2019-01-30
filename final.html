@@ -9,20 +9,20 @@
 		<script src="https://d3js.org/d3.v5.min.js" ></script>
 		<script src="https://unpkg.com/d3-simple-slider/build/d3-simple-slider.js"></script>
 		<script src="https://d3js.org/topojson.v1.min.js"></script>
-		<script src="d3-tip.js"></script>
-		<script type="text/javascript" src="Scripts/JavaScripts/final.js" charset="utf-8"></script>
-		<script type="text/javascript" src="Scripts/JavaScripts/barchart.js" charset="utf-8"></script>
-		<script type="text/javascript" src="Scripts/JavaScripts/map.js" charset="utf-8"></script>
-		<script type="text/javascript" src="Scripts/JavaScripts/helpers.js" charset="utf-8"></script>
-		<script type="text/javascript" src="Scripts/JavaScripts/linechart.js" charset="utf-8"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<script src="d3/d3-tip.js"></script>
+		<script type="text/javascript" src="Scripts/JavaScripts/final.js" charset="utf-8"></script>
+		<script type="text/javascript" src="Scripts/JavaScripts/barchart.js" charset="utf-8"></script>
+		<script type="text/javascript" src="Scripts/JavaScripts/map.js" charset="utf-8"></script>
+		<script type="text/javascript" src="Scripts/JavaScripts/helpers.js" charset="utf-8"></script>
+		<script type="text/javascript" src="Scripts/JavaScripts/linechart.js" charset="utf-8"></script>
 		<script>
+		// source: https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll
 			$(document).ready(function(){
 			  // Add smooth scrolling to all links
 			  $("a").on('click', function(event) {
@@ -51,6 +51,7 @@
 	</head>
 	<body data-spy="scroll" data-target=".navbar" data-offset="80">
 
+		<!-- begin navbar -->
 		<nav id="navbar" class="navbar sticky-top navbar-expand-md navbar-light bg-light" >
 			<a class="navbar-brand" href="#row_0">Forest Growth</a>
 			<ul class="navbar-nav mr-auto">
@@ -68,7 +69,9 @@
 				</li>
 			</ul>
 		</nav>
+		<!-- end navbar -->
 
+		<!-- begin story page -->
 		<div class="container-fluid">
 		<div class="row" id="row_0" style="height: 100vh;">
 			<section id="section07" class="demo">
@@ -104,7 +107,6 @@
 					cutting down trees to create agricultural land to feed their own family.
 					But a global cause of deforestation is the cutting of trees to sell them as timber.
 					<a href="https://www.sciencenews.org/article/new-map-reveals-causes-forest-loss-worldwide">Source: Sciencenews</a>
-
 				</div>
 				<div class="row mt-5">
 					<h3>Solution</h3>
@@ -115,7 +117,6 @@
 					themselves have to set better climate goals.
 				</div>
 			</div>
-
 			<div class="col-md-5" id="infoColumn" style="height: 100%;">
 				<div class="row">
 					<img src="Images/10094847976_55ba5907cd_o.jpg" class="images">
@@ -124,13 +125,13 @@
 					<img src="Images/An_example_of_slash_and_burn_agriculture_practice_Thailand.jpg" class="images">
 				</div>
 			</div>
-
 		</div>
-
+		<!-- end story page -->
 		<hr>
-
+		<!-- begin data page -->
 		<div class="row" id="row_2" style="height: 100%;">
 			<div class="col-md-12">
+				<!-- begin function bar -->
 				<div class="row m-2" id="row_2_0_1" style="height: 4%;">
 					<div class="col-md-6" id="sliderBar">
 					</div>
@@ -142,24 +143,26 @@
 							</div>
 						</form>
 					</div>
-					<div class="col-md-2" id="compareCountry">
-						<!-- <div class="help-tip">
-				    	<p>This is the inline help tip! It can contain all kinds of HTML. Style it as you please.</p>
-						</div> -->
-					</div>
+					<div class="col-md-2" id="compareCountry"></div>
 				</div>
+				<!-- end function bar -->
 				<div class="row" id="row_2.1" style="height: 50%;">
+					<!-- worldmap area -->
 					<div class="col-md-7" id="area1"></div>
+					<!-- linechart area -->
 					<div class="col-md-5" id="area2"></div>
 				</div>
 				<div class="row" id="row_2.2" style="height: 40%;">
+					<!-- barchart area -->
 					<div class="col-md-12" id="area3"></div>
+					<a class="btn btn-outline-secondary" href="https://data.worldbank.org/indicator/AG.LND.FRST.ZS" role="button">Data Source: World Bank</a>
 				</div>
 			</div>
 		</div>
+		<!-- end data page -->
 		<hr>
+		<!-- begin contact page -->
 		<div class="row justify-content-around m-5" id="row_3" style="height: 80vh;">
-
 			<div class="col-md-5" id="contactForm">
 				<p>Hey, my name is Mendel and I created this website for the
 					minor Programming at the University of Amsterdam. Interested in more of my work
@@ -176,6 +179,7 @@
 				</form>
 			</div>
 		</div>
+		<!-- end contact page -->
 
 	</body>
 </html>

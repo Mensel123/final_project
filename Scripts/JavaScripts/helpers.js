@@ -50,6 +50,12 @@ function checkbox(data){
         }
       });
   });
+  d3.select("#compareCountry").append("div")
+    .attr("class", "help-tip")
+    .append("p")
+    .text("Slider (left): move to display overall change in map and barchart. " +
+          "Search (middle): search countries to display in linechart. " +
+          "Compare (right): check and click on countries in map/barchart to compare")
 }
 
 /* this function makes a searchbar to look up countries by name*/

@@ -147,4 +147,10 @@ land met een mouseover beter te onderscheiden in de barchart en map.
 Ik heb er toch voor gekozen om het tussendoor infaden van mijn navbar weg te laten.
 Dit ging helemaal niet soepel waardoor het alleen maar afleidde. Ik heb ook geen
 tijd meer om te zorgen dat dit wel soepel gaat worden.
-Verder alle code comment. 
+Verder alle code comment.
+
+# day 17
+Vandaag vooral gewerkt aan het afronden van mijn project. Laatste code wat opgeschoond,
+readme bijgewerkt en license gemaakt. Verder nog een questionmark toegevoegd die
+de user informeert over de functies in de toolbar. Ik heb ook mijn hele folder
+structuur geordend.  

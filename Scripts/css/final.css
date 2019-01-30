@@ -256,7 +256,7 @@ section::after {
 }
 
 #row_0{
-  background-image: url("../../Images/forest.jpg");
+  background-image: url("../../doc/images/forest.jpg");
   /* width: 100vh; */
   background-size: cover;
 }

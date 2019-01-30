@@ -53,5 +53,5 @@ forest.jpg Source: https://www.pexels.com/photo/conifer-daylight-evergreen-fores
 An_example_of_slash_and_burn_agriculture_practice_Thailand.jpg source: https://www.flickr.com/photos/7389415@N06/3420536970
 
 *This project is licensed under the terms of the MIT license.
-Rebecca Davidsson, 2019*
+Mendel Engelaer, 2019*
 

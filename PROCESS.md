@@ -135,4 +135,16 @@ slider schuift. Verder alles uitgelijnd op de data pagina. Het is al enigszins g
 om de navbar pas op de tweede pagina te laten zien maar dit moet nog iets soepeler.
 Verder ook mijn story pagina bijgewerkt met verhaal en foto's. Vandaag ook
 de contact pagina gemaakt waarbij mensen mij hun email en naam kunnen sturen via
-formspree en dan kan ik contact met hen opnemen. 
+formspree en dan kan ik contact met hen opnemen.
+
+# day 16
+Vandaag vooral bezig geweest met de layout. Ik heb de site op git gezet en laten
+runnen op andere computers en kwam er toen achter dat het schalen niet goed ging.
+Divs gingen overlappen en het was een grote chaos. Uiteindelijk de beeldverhoudingen
+teruggezet van viewport height(vh) naar %. Dit lostte het probleem op.
+Verder wat stijl issues aangepakt waardoor het onderscheiden van het geselecteerde
+land met een mouseover beter te onderscheiden in de barchart en map.
+Ik heb er toch voor gekozen om het tussendoor infaden van mijn navbar weg te laten.
+Dit ging helemaal niet soepel waardoor het alleen maar afleidde. Ik heb ook geen
+tijd meer om te zorgen dat dit wel soepel gaat worden.
+Verder alle code comment. 

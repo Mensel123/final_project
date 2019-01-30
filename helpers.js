@@ -1,59 +1,69 @@
-  function checkbox(data){
 
-    d3.select("#compareCountry")
-      .attr("class", "form-check")
+/* this function make a checkbox to allow the user to choose whether or not
+to compare countries*/
+function checkbox(data){
 
-      .append("input")
+  // make checkbox
+  d3.select("#compareCountry")
+    .attr("class", "form-check")
+    .append("input")
       .attr("class", "form-check-input")
       .attr("id", "myCheckBox")
       .attr("type", "checkbox")
-
       .attr("value", "checked")
       .attr("id", "defaultCheck1")
-    d3.select(".form-check")
-      .append("label")
-      .attr("class","form-check-label")
-      .attr("for", "defaultCheck1")
-      .html("Compare Countries")
+  d3.select(".form-check")
+    .append("label")
+    .attr("class","form-check-label")
+    .attr("for", "defaultCheck1")
+    .html("Compare Countries")
 
+  // register when box is checked or unchecked
+  $(document).ready(function(){
+      $('input[type="checkbox"]').click(function(){
 
-    $(document).ready(function(){
-        $('input[type="checkbox"]').click(function(){
-            if($(this).is(":checked")){
-              console.log("checked");
-              if(data_list.length < 1){
-                data_list.push(currentData)
-              }
+        // when compare is checked
+        if($(this).is(":checked")){
+
+          /* if checked, add currentData to data_list. This way all countries
+          present in the linegraph are registered so no countries can be added
+          twice*/
+          if(data_list.length < 1){
+            data_list.push(currentData)
+          }
+        }
+
+        // if unchecked, remove all lines but one and update graph to this line
+        else if($(this).is(":not(:checked)")){
+
+          // if more lines are present in graph, remove all but one
+          if(data_list.length > 1){
+            for(var i = 1; i < data_list.length; i++){
+              d3.selectAll("#"+data_list[i]["Country Name"].split(' ').join(''))
+                .remove()
             }
-            else if($(this).is(":not(:checked)")){
-              console.log("not checked");
-              if(data_list.length > 1){
-                for(var i = 1; i < data_list.length; i++){
-                  d3.selectAll("#"+data_list[i]["Country Name"].split(' ').join(''))
-                    .remove()
-                }
-                currentData = data_list[0]
-              }
-              data_list = []
-              updateLineGraph(currentData)
-            }
-        });
-    });
-  }
+            currentData = data_list[0]
+          }
+          // empty data_list since compare is switched off
+          data_list = []
+          updateLineGraph(currentData)
+        }
+      });
+  });
+}
 
+/* this function makes a searchbar to look up countries by name*/
 function createCountryList(data) {
 
+  // collect names of all countries
   countriesList = [];
-  // console.log(data);
   data[0].forEach(function(country) {
-    // console.log(country);
     countriesList.push(country["Country Name"])
   });
-  // console.log(countriesList);
-
   autocomplete(document.getElementById("myInput"), countriesList);
 }
 
+// source: https://www.w3schools.com/howto/howto_js_autocomplete.asp
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -162,8 +172,11 @@ function getCountry(input){
   console.log(input);
 }
 
+/* create range slider to show change over years
+source: https://www.w3schools.com/howto/howto_js_rangeslider.asp*/
 function slider(data){
-    // add slidebar
+
+  // add slidebar
   d3.select("#sliderBar").append("div")
     .attr("class", "slidecontainer")
     .append("input")
@@ -178,16 +191,16 @@ function slider(data){
   d3.select(".slidecontainer").append("p")
                   .attr("class", "showYear")
                   .style("display", "inline-block")
-
                   .text("Year:")
                   .append("span")
                     .attr("id", "demo")
                     .style("font-weight","bold")
+
   // get slider and output element
   var slider = document.getElementById("myRange");
   var output = document.getElementById("demo");
 
-  /* output element shows the current value (2007) of the slider when page is
+  /* output element shows the current value (1995) of the slider when page is
   loaded */
   output.innerHTML = slider.value;
 
@@ -197,7 +210,6 @@ function slider(data){
 
     output.innerHTML = this.value;
 
-    // list = combineData(data, output.innerHTML)
     updateMap(data, output.innerHTML)
     updateBar(data, output.innerHTML)
   }

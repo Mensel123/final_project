@@ -5,10 +5,10 @@ from pandas.io.json import json_normalize
 
 def load():
     # load csv as DataFrame
-    df_trees = pd.read_csv('../..Data/data_2.csv')
+    df_trees = pd.read_csv('../../Data/data_2.csv')
 
     # load json object
-    with open('../..Data/world_countries.json') as f:
+    with open('../../Data/world_countries.json') as f:
         d = json.load(f)
 
     # normalize json to remove all nesting
@@ -46,7 +46,7 @@ def load():
             del(result[i][year])
 
     # create json
-    with open('../..Data/new_json.json', 'w') as outfile:
+    with open('../../Data/new_json.json', 'w') as outfile:
         json.dump(result, outfile)
 
 

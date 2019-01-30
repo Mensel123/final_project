@@ -1,6 +1,8 @@
-# Forest Growth
+# Final project - Forest Growth
+Minor Programming UvA
 Final project of Dataprocessing
 Mendel Engelaer 10996222
+mendelengelaer@hotmail.com
 
 ## Problem statement
 Trees are essential for the existence of human beings. Without them we would
@@ -15,11 +17,23 @@ https://www.nature.com/articles/nature14967.epdf?referrer_access_token=GHIjjPPky
 ## Solution
 I have created an interactive website that visualizes the forest area change from 1990 up to 2015.
 
-### Visualisation
+### Walkthrough
+#### Mainpage
+This is de main page of my website. This page has not so much a function by itself but hopefully impresses the visitor. 
 ![alt text](https://github.com/Mensel123/final_project/blob/master/doc/screenshots/mainPage.png)
 
-### Main features
 
+#### Story
+This page gives the visitor a brief introduction to the problem. Using several sources the problem, main causes and a solution are described. The images are there to underline the seriousness of the problem. 
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/screenshots/storyPage.png)
+
+#### Data
+This page shows all the visualizations. The top of the page starts with a toolbar. In the left top corner a world map is shown, to right of this is a linechart. Beneath the map and linechart there is a barchart.   
+In the toolbar the user can see some of the functionalisaties of the graphs. The user can slide through all the years, then the map and bargraph will adapt to the selected year. Furthermore the user can search countries to visualize in the linegraph and the user can choose to use the compare function. This function allows the user to add multiple graphs to the linechart to compare the lines. Next to the toolbar is a question mark and when the user hoovers over it, it gives a brief explanation of the functions in the toolbar. All graphs in this image have a tooltip that show additional information about the graph.
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/screenshots/dataPage.png)
+
+#### Contact
+This page allows the user to contact me for questions.
 
 ### Data sources:
 https://data.worldbank.org/indicator/AG.LND.FRST.ZS

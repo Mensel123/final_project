@@ -1,8 +1,8 @@
 # Final project - Forest Growth
-Minor Programming UvA
-Final project of Dataprocessing
-Mendel Engelaer 10996222
-mendelengelaer@hotmail.com
+Minor Programming UvA  
+Final project of Dataprocessing  
+Mendel Engelaer 10996222  
+mendelengelaer@hotmail.com  
 
 ## Problem statement
 Trees are essential for the existence of human beings. Without them we would

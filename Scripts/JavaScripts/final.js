@@ -11,7 +11,7 @@ window.onload = function() {
                 return "<strong>Country: </strong><span class='details'>" + d["Country Name"] + "<br></span>" + "<strong>Forest area(%): </strong><span class='details'>" + (d.Years[0].value) +"</span>";
               })
 
-  var requests = [d3.json('../../Data/new_json.json')];
+  var requests = [d3.json('././Data/new_json.json')];
 
   // if all requests are fulfilled, run code inside function
   Promise.all(requests).then(function(response) {

@@ -42,9 +42,15 @@ https://data.worldbank.org/indicator/AG.LND.FRST.ZS
 This dataset contains forest area of % land area for many countries. I have used this dataset to create my visualisations.
 
 ## External components:
-D3 library  
-Pandas
-jQuery
-Bootstrap
+**D3 library** License: BSD 3-Clause "New" or "Revised" License Source: https://github.com/d3/d3  
+**Pandas**  License: BSD 3-Clause "New" or "Revised" License Source: https://github.com/pandas-dev/pandas  
+**jQuery** License: MIT License Source: https://github.com/jquery/jquery  
+**Bootstrap** License: MIT license Source: https://getbootstrap.com  
+
+## Image sources:
+forest.jpg Source: https://www.pexels.com/photo/conifer-daylight-evergreen-forest-572937/  
+10094847976_55ba5907cd_o.jpg Source: https://www.flickr.com/photos/crustmania/10094847976  
+An_example_of_slash_and_burn_agriculture_practice_Thailand.jpg source: https://www.flickr.com/photos/7389415@N06/3420536970
+
 
 

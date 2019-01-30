@@ -19,12 +19,12 @@ I have created an interactive website that visualizes the forest area change fro
 
 ## Walkthrough
 ### Mainpage
-This is de main page of my website. This page has not so much a function by itself but hopefully impresses the visitor. 
+This is de main page of my website. This page has not so much a function by itself but hopefully impresses the visitor.
 ![alt text](https://github.com/Mensel123/final_project/blob/master/doc/screenshots/mainPage.png)
 
 
 ### Story
-This page gives the visitor a brief introduction to the problem. Using several sources the problem, main causes and a solution are described. The images are there to underline the seriousness of the problem. 
+This page gives the visitor a brief introduction to the problem. Using several sources the problem, main causes and a solution are described. The images are there to underline the seriousness of the problem.
 ![alt text](https://github.com/Mensel123/final_project/blob/master/doc/screenshots/storyPage.png)
 
 ### Data
@@ -46,6 +46,9 @@ This dataset contains forest area of % land area for many countries. I have used
 **Pandas**  License: BSD 3-Clause "New" or "Revised" License Source: https://github.com/pandas-dev/pandas  
 **jQuery** License: MIT License Source: https://github.com/jquery/jquery  
 **Bootstrap** License: MIT license Source: https://getbootstrap.com  
+**SmoothScroll** Source: https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll  
+**AutoFill** Source: https://www.w3schools.com/howto/howto_js_autocomplete.asp
+
 
 ## Image sources:
 forest.jpg Source: https://www.pexels.com/photo/conifer-daylight-evergreen-forest-572937/  
@@ -54,4 +57,3 @@ An_example_of_slash_and_burn_agriculture_practice_Thailand.jpg source: https://w
 
 *This project is licensed under the terms of the MIT license.
 Mendel Engelaer, 2019*
-

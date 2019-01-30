@@ -8,7 +8,10 @@ window.onload = function() {
               // .style('left', d3.event.y)
               .offset([-10, 0])
               .html(function(d) {
-                return "<strong>Country: </strong><span class='details'>" + d["Country Name"] + "<br></span>" + "<strong>Forest area(%): </strong><span class='details'>" + (d.Years[0].value) +"</span>";
+                return "<strong>Country: </strong><span class='details'>" +
+                d["Country Name"] + "<br></span>" +
+                "<strong>Forest area(%): </strong><span class='details'>" +
+                format(d.Years[0].value) +"</span>";
               })
 
   var requests = [d3.json('././Data/new_json.json')];

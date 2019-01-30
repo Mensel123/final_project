@@ -5,7 +5,9 @@ var tip_2 = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-              return "<strong>Country: </strong><span class='details'>" + d[0] + "<br></span>" + "<strong>Year: </strong><span class='details'>" + (d[1]) +"</span>";
+              return "<strong>Country: </strong><span class='details'>" +
+              d[0] + "<br></span>" + "<strong>Year: </strong><span class='details'>"
+              + (d[1]) +"</span>";
             })
 
 
@@ -37,8 +39,10 @@ function linechart(data){
   // create svg
   var svg = d3.select("#area2").append("svg")
               .attr("class", "linechart")
-              .attr("viewBox", [0, 0, (properties.width + properties.right + properties.left),
-                                  (properties.height + properties.top + properties.bottom)].join(' '))
+              .attr("viewBox", [0, 0, (properties.width + properties.right
+                                       + properties.left),
+                                  (properties.height + properties.top +
+                                   properties.bottom)].join(' '))
               .append("g")
               .attr("transform", "translate(" + properties.left +
                     "," + properties.top + ")");

@@ -9,7 +9,7 @@ crucial for answering my question.
 
 Furthermore I decided to work with one json file. So I merged the csv and tsv
 file into one json. Dit leek mij handiger omdat ik hierdoor geen landen in mijn
-dataset die niet in de kaart stonden. En ik kan nu heel makkelijk de data
+dataset heb die niet in de kaart stonden. En ik kan nu heel makkelijk de data
 doorsturen naar mijn lijngrafiek en barchart.
 Ik heb hem eerst in een pandas dataframe gezet om overzicht te krijgen:  
 ![alt text](https://github.com/Mensel123/final_project/blob/master/doc/pandas_dataframe.png)  
@@ -108,9 +108,11 @@ de compare functie uitzette waardoor het updaten naar 1 lijn niet goed ging bij 
 van de compare functie. Verder is het me ook gelukt om te zorgen dat er pas op een volgend
 land gedrukt kan worden als de animatie van de vorige is afgelopen. Hierdoor kan je landen
 maar 1 voor 1 toevoegen wat bugs in de transitie voorkomt. Dus hij is helemaal bug vrij.
+Ik heb besloten om het verwijderen van lijnen te laten zitten. Het veroorzaakt veel
+bugs en ik heb geen tijd meer om deze allemaal op te vangen.
 Verder heb ik ook een form toegoegd waarin je landen kan opzoeken om in de lijngrafiek
 weer te geven. Dit werkt ook samen met de compare functie.
-Verder ook een text label toegevoegd in de lijngrafiek waarin wordt staat welk
+Verder ook een text label toegevoegd in de lijngrafiek waarin staat welk
 land in de lijngrafiek wordt weergegeven. Ik moet nog fixen dat dit verdwijnt
 als de compare functie wordt aangezet
 
@@ -147,10 +149,15 @@ land met een mouseover beter te onderscheiden in de barchart en map.
 Ik heb er toch voor gekozen om het tussendoor infaden van mijn navbar weg te laten.
 Dit ging helemaal niet soepel waardoor het alleen maar afleidde. Ik heb ook geen
 tijd meer om te zorgen dat dit wel soepel gaat worden.
-Verder alle code comment.
+Verder alle code gecomment.
 
 # day 17
 Vandaag vooral gewerkt aan het afronden van mijn project. Laatste code wat opgeschoond,
 readme bijgewerkt en license gemaakt. Verder nog een questionmark toegevoegd die
 de user informeert over de functies in de toolbar. Ik heb ook mijn hele folder
-structuur geordend.  
+structuur geordend.
+Ik heb nog geprobeerd om te voorkomen dat de tooltip boven het svg uitkomt door
+de tooltip de muislocatie aan te laten houden ipv het path van het land.
+Uiteidendelijk is het niet gelukt en heb ik geaccepteerd dat het ook niet meer
+gaat lukken. Ik heb er al eerder aan gewerkt en het gaat helaas niet meer lukken
+binnen de deadline.

@@ -15,7 +15,8 @@ forests by making an interactive visualisation?
 https://www.nature.com/articles/nature14967.epdf?referrer_access_token=GHIjjPPky_AfrHv0IIWM69RgN0jAjWel9jnR3ZoTv0PkYJmQ6VQcpxIB4Tt0SaQy_TViN9dLBJXbXpFkkWGX7RsUA_8a8_uEeuFNil0kTIiDDSPq7px4H3IiRCoW6JEZfZ2TCGutz3VPgv3j19khbrXjkAnHGD8Lk7FZRPgI7rHk8WPbN2eaj3NwQoI9l4F40yXkDjz_RSSZBk7IQBLY7Q%3D%3D&tracking_referrer=time.com
 
 ## Solution
-I have created an interactive website that visualizes the forest area change from 1990 up to 2015.
+I have created an interactive website that visualizes the forest area change from 1990 up to 2015.  
+Github Pages: https://mensel123.github.io/final_project/final.html  
 
 ## Walkthrough
 ### Mainpage

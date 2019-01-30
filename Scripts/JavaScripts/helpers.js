@@ -170,12 +170,10 @@ function autocomplete(inp, arr) {
 
 function getCountry(input){
   globalData[0].forEach(function(country) {
-    // console.log(country);
     if(country["Country Name"] === input){
       updateLineGraph(country)
     }
   });
-  console.log(input);
 }
 
 /* create range slider to show change over years

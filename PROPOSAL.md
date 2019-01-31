@@ -17,7 +17,7 @@ I would like to create an interactive map that visualizes the amount of wood
 that is being cut per country over the years.
 
 ### Visualisation
-![alt text](https://github.com/Mensel123/final_project/blob/master/doc/voorbeeld.png)
+![alt text](https://github.com/Mensel123/final_project/blob/master/doc/readme/voorbeeld.png)
 ### Main features
 MVP:
 * Interactive world map, clicking on the map shows additional information,

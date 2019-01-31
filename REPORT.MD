@@ -101,5 +101,33 @@ A on click function updates the linegraph like the barchart on click function. T
 that only changes the color of the map when the slider is moved. The is done with a small transition.
 
 ### Data
+When I started this project I wanted to use two datasets that consisted of a dataset about forestgrowth and a dataset about
+forest cutting. In week 1 I found out that the existing datasets where incomplete and not suited for my ideas I discarded this idea. I then found a dataset that has these two datasets in one merged dataset namely the total forest area over the years. 
+I merged this data with the topojson data to make sure that only countries were loaded in my dataset that were present in the
+map. I used a python script named transform.py. This script loads both datasets and combines them through a pandas dataframe
+into one json. This json is loaded when a user goes to my website and prevents the user to load all the datasets.  
+I structured the json so that the forest area data of all years is ordered in one header names Years. In this way the json
+is structered well and easy to use for the barchart, map and linegraph.
+
+## Process and Development
+### Challenges and changes to PROPOSAL
+The first challenge that I encountered was that my dataset was incomplete and I had to find a new one. This drasticly changed 
+the way I wanted to make my webpage. I could not make the toggle option to show the trees planted vs trees cut. Instead I came up with the idea to compare countries.  
+Ordering my json was also one of the big challenges. I wanted to use one json for all my graphs and that meant that I had to
+nest the data in the json. This was harder then I first thought and cost me quite a lot of time.  
+The compare function that I wanted to make was also a bigger challenge then I estimated before I started. Because I wanted
+smooth transitions between comparing and not comparing countries without making new graphs and without pages of code I had
+to come up with a way to do this neatly. Most of the time I was busy trying to prevent it from breaking when users did unexpected things like pressing the same country twice or pressing multiple countries in a short period. Because of these challenges I was not able to add agricultural ground and decided to skip this option. But other then that I was able to include all the options that I listed in my proposal..
+
+### Acquired Skills
+The thing I learned early on is that formatting your dataset early on is really important. Adding or editing your dataset once you have begun is nearly impossible. In doing this early I learned a lot about how to neatly organize a valid json.  
+Compared to my previous projects I used a lot more html and css options and learned a lot from this. I can now better organize a page and style it to my liking. For the linking of all three graphs I had to extent my d3 knowledge as I already estimated in my PROPOSAL. This is something I really enjoyed during this project. I found that I like to make smooth transitions and animations. This was the firstime I made a linechart in D3 together with all its functionalities. Especially adding dots to the linechart and updating them at the same time with line proved to bee a challenge but at the same time I learned about d3 while doing this.
+
+### Defence
+Changing datasets came out to be a good decision. I had already spent allot of time finding datasets and finding new ones was nearly impossible for this theme. Although I was not able to do everything I wanted with this dataset it was really complete, well organized and easy to use. The use of percentages makes the graphs simple to read for user and allows them to interpret the data easier.  
+Placing all the graphs in one page might be seen as too much but it allows the user to see the interactions between the graphs better. It prevents that the user changes something in one graph and then has to scroll to see the result.  
+I thin the use of tints of green make it also easier for the user to see the change in result and interpret the data. The compare function is a usefull addition to my site. This is one itself a need interactive feature and may give a better answer to the question which countries do better in forest preservation then others.  
+In a ideal world I would have like to added a lot more. I would have wanted to add other datasets that say something about the causes of deforestation like agriculture or livestock. I would also have like it to make the site more responsive and make it even usable on phones. When looking back on the assignment I might have wanted to focus more on the story itself. I however decided to spent this time in making better graphs and therefore I had let the focus on the story go for some part. 
+
 
 

@@ -3,6 +3,7 @@ Minor Programming UvA
 Final project of Dataprocessing  
 Mendel Engelaer 10996222  
 mendelengelaer@hotmail.com  
+YouTube Walkthrough: https://www.youtube.com/watch?v=qFvJpZwDl_g&feature=youtu.be  
 
 ## Problem statement
 Trees are essential for the existence of human beings. Without them we would
